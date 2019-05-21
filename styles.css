@@ -32,7 +32,8 @@ h1 {
 
 .nav__input--quality {
 	height: 35px;
-	margin: auto;
+  width: 90%;
+	margin: 15px 10px;
 }
 
 .nav__btn--quality:hover {
@@ -65,7 +66,7 @@ h1 {
 	border-color: #353567;
 	color: #e9e9f3;
 	margin: 15px 10px;
-	width: auto;
+	width: 90%;
 	height: 40px;
 }
 
@@ -88,7 +89,7 @@ h1 {
 
 .section__form--top {
   background-color: #A9AAD2;
-  height: 42vh;
+  /*height: 42vh;*/
   /*width: 80%;*/
   grid-area:f;
 
@@ -108,14 +109,14 @@ h1 {
 
 .card-build_input {
   border: 1.2px solid #5356A4;
-  box-shadow: 1px 1px 1px #5356A4;
+  /*box-shadow: 1px 1px 1px #5356A4;*/
   margin: 10px;
 }
 
 .card-build_label {
   color: #1F1F3D;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .card-build_title {
@@ -135,12 +136,12 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
+  margin: 10px 0px 20px;
 }
 
 .search-input {
   border: 1.2px solid #5356A4;
-  box-shadow: 1px 1px 1px #5356A4;
+  /*box-shadow: 1px 1px 1px #5356A4;*/
   height: 40px;
   width: 35%;
   padding-left: 10px;
@@ -149,7 +150,7 @@ h1 {
 
 .search-img {
   border: 1.2px solid #5356A4;
-  box-shadow: 1px 1px 1px #5356A4;
+  /*box-shadow: 1px 1px 1px #5356A4;*/
   height: 40px;
   width: auto;
   border-right: 1px solid #1F1F3D;
