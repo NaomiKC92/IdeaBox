@@ -161,13 +161,14 @@ h1 {
 .section__display--bottom{
   background-color: #eaeaf4;
   grid-area: d;
-  height: 58vh;
+  height: 90vh;
 }
 
 article {
   background-color: white;
-  margin:2em;
-  width:16%;
+  border: 1px solid #1f1f3d;
+  margin: 20px;
+  width: 25%;
 }
 
 header,
@@ -184,12 +185,21 @@ footer p {
   margin: .2em;
 }
 
+footer p {
+  padding-top: 5px;
+}
+
 main h2 {
   font-size: 16px;
 }
 
+.card-text {
+  padding: 5px;
+}
+
 main p {
   font-size: 12px;
+  height: 100px;
 }
 
 footer {
