@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  border: 2px solid pink;
+}
+
+.section__form--top {
+  background-color: #A9AAD2;
+  height: 600px;
+  width: 900px;
+
+}
+
+.build-card_form--top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.search-bar {
+  display: inline;
+}
+
+.build-card_form {
+  width: 300px;
+  text-align: left;
+}
+
+.save-btn {
+  background-color: #1F1F3D;
+  color: #FFF;
+  text-align: center;
+}
