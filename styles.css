@@ -74,3 +74,44 @@ body {
   width: auto;
   border-right: 1px solid #1F1F3D;
 }
+
+/*idea cards*/
+
+.section__display--bottom{
+  background-color: #eaeaf4
+}
+
+article {
+  background-color: white;
+  margin:2em;
+  width:16%;
+}
+
+header,
+footer {
+  background-color: #1f1f3d;
+  color:white;
+  display: flex;
+  justify-content: space-between;
+}
+
+header img, 
+footer img,
+footer p {
+  margin: .2em;
+}
+
+main h2 {
+  font-size: 16px;
+}
+
+main p {
+  font-size: 12px;
+}
+
+footer {
+  background-color: #5356a4;
+  font-weight: 700;
+  font-size:12px;
+}
+
