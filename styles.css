@@ -5,17 +5,23 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  display: grid;
+  grid-template-areas: 
+  'n f'
+  'n d';
+  grid-template-columns: 20% 80%;
 }
 
 nav {
+  grid-area:n;
 	display: flex;
 	flex-direction: column;
 	font-family: 'open sans';
 	background-color: #1f1f3d;
 	height: 100%;
-	position: fixed;
-	top: 0;
-	width: 17%;
+/*	position: fixed;*/
+/*	top: 0;*/
+/*	width: 17%;*/
 }
 
 h1 {
@@ -71,13 +77,14 @@ li {
 	display: flex;
 	flex-direction: column;
 	margin: 2%;
-  
+}
   /*top-section*/
 
 .section__form--top {
   background-color: #A9AAD2;
-  height: 410px;
-  width: 80%;
+  height: 42vh;
+  /*width: 80%;*/
+  grid-area:f;
 
 }
 
@@ -145,7 +152,9 @@ li {
 /*idea cards*/
 
 .section__display--bottom{
-  background-color: #eaeaf4
+  background-color: #eaeaf4;
+  grid-area: d;
+  height: 58vh;
 }
 
 article {
