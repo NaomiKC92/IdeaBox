@@ -7,6 +7,73 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+nav {
+	display: flex;
+	flex-direction: column;
+	font-family: 'open sans';
+	background-color: #1f1f3d;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	width: 17%;
+}
+
+h1 {
+	border-bottom: 1px solid #a9aad2;
+	color: #fff;
+	font-family: 'open sans', bold;
+	font-size: 15px;
+	height: 5%;
+	margin: 5%;
+	vertical-align: center;
+}
+
+
+li:hover {
+	background-color: #d14119;
+	display: block;
+	border-left: 3px solid #f58e72;
+}
+
+li {
+	color: #fff;
+	list-style-type: none;
+	align-content: left;
+}
+
+.nav__label {
+	color: #bfbfdd;
+	font-family: 'open sans', light;
+	text-align: left;
+	font-size: 10px;
+	margin: 5px;
+}
+
+.nav__btn {
+	background-color: #5356a4;
+	border-color: #353567;
+	color: #e9e9f3;
+	margin: 5px;
+	width: auto;
+}
+
+.nav__form--top {
+	align-content: center;
+	border-bottom: 1px solid #a9aad2;
+	display: flex;
+	flex-direction: column;
+	margin: 5%;
+}
+
+.nav__form--bottom {
+	align-content: center;
+	border-bottom: 1px solid #a9aad2;
+	display: flex;
+	flex-direction: column;
+	margin: 2%;
+  
+  /*top-section*/
+
 .section__form--top {
   background-color: #A9AAD2;
   height: 410px;
