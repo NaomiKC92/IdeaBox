@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+  /*border: 2px solid pink;*/
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 
 nav {
 	display: flex;
@@ -63,5 +71,114 @@ li {
 	display: flex;
 	flex-direction: column;
 	margin: 2%;
+  
+  /*top-section*/
+
+.section__form--top {
+  background-color: #A9AAD2;
+  height: 410px;
+  width: 80%;
+
+}
+
+.build-card_form--top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.build-card_form {
+  width: 40%;
+  text-align: left;
+}
+
+.card-build_input {
+  border: 1.2px solid #5356A4;
+  box-shadow: 1px 1px 1px #5356A4;
+  margin: 10px;
+}
+
+.card-build_label {
+  color: #1F1F3D;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.card-build_title {
+  height: 40px;
+}
+
+.save-btn {
+  background-color: #1F1F3D;
+  border: 1px solid #1F1F3D;
+  color: #FFF;
+  height: 40px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.search-input {
+  border: 1.2px solid #5356A4;
+  box-shadow: 1px 1px 1px #5356A4;
+  height: 40px;
+  width: 35%;
+  padding-left: 10px;
+
+}
+
+.search-img {
+  border: 1.2px solid #5356A4;
+  box-shadow: 1px 1px 1px #5356A4;
+  height: 40px;
+  width: auto;
+  border-right: 1px solid #1F1F3D;
+}
+
+/*idea cards*/
+
+.section__display--bottom{
+  background-color: #eaeaf4
+}
+
+article {
+  background-color: white;
+  margin:2em;
+  width:16%;
+}
+
+header,
+footer {
+  background-color: #1f1f3d;
+  color:white;
+  display: flex;
+  justify-content: space-between;
+}
+
+header img, 
+footer img,
+footer p {
+  margin: .2em;
+}
+
+main h2 {
+  font-size: 16px;
+}
+
+main p {
+  font-size: 12px;
+}
+
+footer {
+  background-color: #5356a4;
+  font-weight: 700;
+  font-size:12px;
 }
 
