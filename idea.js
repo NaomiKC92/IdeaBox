@@ -1,19 +1,21 @@
 class Idea {
-  constructor (id, title, body) {
-    this.id = id;
-    this.title = title;
-    this.body = body;
+  constructor (obj) {
+    this.id = obj.id;
+    this.title = obj.title;
+    this.body = obj.body;
     this.star = false;
     this.quality = ['Swill', 'Plausible', 'Genius'];
+
   }
 
   saveToStorage() {
+    var stringObj = JSON.stringify(this);
+    console.log(stringObj);
 
 
-
-  localStorage.setItem('id', ideaId);
-  localStorage.setItem('title', ideaTitle);
-  localStorage.setItem('body', ideaBody);
+  // localStorage.setItem('id', ideaId);
+  // localStorage.setItem('title', ideaTitle);
+  // localStorage.setItem('body', ideaBody);
 
   }
 

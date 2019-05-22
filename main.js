@@ -2,8 +2,8 @@ var saveBtn = document.querySelector('.save-btn');
 var titleInput = document.querySelector('#section__form--title');
 var bodyInput = document.querySelector('#section__form--body');
 var ideaList = [];
+var qualityCounter = 0;
 
-var idea = new Idea()
 
 saveBtn.disabled = true;
 
@@ -15,10 +15,11 @@ saveBtn.addEventListener('click', doSomething);
 
 function doSomething(e){
   event.preventDefault();
-  var ideaTitle = JSON.stringify(titleInput.value);
-  var ideaBody = JSON.stringify(bodyInput.value);
+  var ideaTitle = titleInput.value;
+  var ideaBody = bodyInput.value;
   var ideaId = Date.now();
-  var idea = new Idea(ideaId, ideaTitle, ideaBody)
+  var idea = new Idea({id: ideaId, title: ideaTitle, body: ideaBody, star: false});
+  idea.saveToStorage();
   console.log(idea)
   // localStorage.setItem('id', ideaId);
   // localStorage.setItem('title', ideaTitle);
