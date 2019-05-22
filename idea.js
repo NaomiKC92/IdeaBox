@@ -10,13 +10,8 @@ class Idea {
 
   saveToStorage() {
     var stringObj = JSON.stringify(this);
-    console.log(stringObj);
-
-
-  // localStorage.setItem('id', ideaId);
-  // localStorage.setItem('title', ideaTitle);
-  // localStorage.setItem('body', ideaBody);
-
+    localStorage.setItem(this.id, stringObj);
+    console.log(localStorage);
   }
 
   deleteFromStorage() {

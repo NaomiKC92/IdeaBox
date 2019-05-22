@@ -19,13 +19,9 @@ function doSomething(e){
   var ideaBody = bodyInput.value;
   var ideaId = Date.now();
   var idea = new Idea({id: ideaId, title: ideaTitle, body: ideaBody, star: false});
+  ideaList.push(idea);
   idea.saveToStorage();
-  console.log(idea)
-  // localStorage.setItem('id', ideaId);
-  // localStorage.setItem('title', ideaTitle);
-  // localStorage.setItem('body', ideaBody);
-
-  console.log(localStorage)
+ 
 }
 
 function enableBtn(event) {
