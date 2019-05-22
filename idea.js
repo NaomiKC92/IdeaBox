@@ -1,20 +1,15 @@
 class Idea {
-  constructor (id, title, body) {
-    this.id = id;
-    this.title = title;
-    this.body = body;
+  constructor (obj) {
+    this.id = obj.id;
+    this.title = obj.title;
+    this.body = obj.body;
     this.star = false;
-    this.quality = ['Swill', 'Plausible', 'Genius'];
+    this.quality = 0;
+
   }
 
   saveToStorage() {
-
-
-
-  localStorage.setItem('id', ideaId);
-  localStorage.setItem('title', ideaTitle);
-  localStorage.setItem('body', ideaBody);
-
+    localStorage.setItem('ideas', JSON.stringify(ideaList));
   }
 
   deleteFromStorage() {
@@ -29,5 +24,3 @@ class Idea {
 
   }
 }
-
-
