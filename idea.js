@@ -4,14 +4,12 @@ class Idea {
     this.title = obj.title;
     this.body = obj.body;
     this.star = false;
-    this.quality = ['Swill', 'Plausible', 'Genius'];
+    this.quality = 0;
 
   }
 
   saveToStorage() {
-    var stringObj = JSON.stringify(this);
-    localStorage.setItem(this.id, stringObj);
-    console.log(localStorage);
+    localStorage.setItem('ideas', JSON.stringify(ideaList));
   }
 
   deleteFromStorage() {
@@ -26,5 +24,3 @@ class Idea {
 
   }
 }
-
-
