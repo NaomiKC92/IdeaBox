@@ -61,7 +61,7 @@ function appendCard(title, body) {
 }
 
 function reloadCards() {
-  ideaList.map(function(idea, body) {
+  ideaList.map(function(idea) {
     // titleCard.innerText = idea.title
     console.log(idea.title); 
     appendCard(idea.title, idea.body);
