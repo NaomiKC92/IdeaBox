@@ -27,7 +27,6 @@ function enableBtn(event) {
 function handleSaveBtn(e) {
   e.preventDefault();
   instantiateIdea();
-  appendCard(titleInput.value, bodyInput.value);
   clearInputs();
   console.log(localStorage);
   console.log(ideaList);
@@ -45,18 +44,19 @@ function instantiateIdea(){
   var idea = new Idea({id: ideaId, title: ideaTitle, body: ideaBody, star: false, quality: 0});
   ideaList.push(idea);
   idea.saveToStorage();
+  appendCard(idea);
 }
 
-function appendCard(title, body) {
+function appendCard(object) {
   var ideaCard = `
-  <article class="card">
+  <article class="card" data-id="${object.id}">
         <header>
           <img src="images/star.svg" height="20px" width="20px"> 
           <img src="images/delete.svg" height="20px" width="20px">
         </header>
         <div>
-          <h2 class="title__card--text card-text">${title}</h2>
-          <p class="body__card--text card-text">${body}</p>
+          <h2 class="title__card--text card-text">${object.title}</h2>
+          <p class="body__card--text card-text">${object.body}</p>
         </div>
         <footer>
           <img src="images/upvote.svg" height="20px" width="20px">
@@ -71,6 +71,6 @@ function appendCard(title, body) {
 function reloadCards() {
   ideaList.map(function(idea) {
     console.log(idea.title); 
-    appendCard(idea.title, idea.body);
+    appendCard(idea);
   });
 }
