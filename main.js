@@ -17,8 +17,10 @@ saveBtn.addEventListener('click', handleSaveBtn);
 reloadCards();
 
 function enableBtn(event) {
-  if (event !== "") {
+  if (this.value !== '') {
     saveBtn.disabled = false;
+  } else {
+    saveBtn.disabled = true;
   }
 }
 
