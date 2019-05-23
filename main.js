@@ -2,6 +2,8 @@ var saveBtn = document.querySelector('.save-btn');
 var titleInput = document.querySelector('#section__form--title');
 var bodyInput = document.querySelector('#section__form--body');
 var display = document.querySelector('.section__display--bottom');
+var titleCard = document.querySelector('.title__card--text');
+var bodyCard = document.querySelector('.body__card--text');
 var ideaList = JSON.parse(localStorage.getItem('ideas')) || [];
 var qualityCounter = 0;
 
@@ -10,8 +12,9 @@ saveBtn.disabled = true;
 
 titleInput.addEventListener ('keyup', enableBtn);
 bodyInput.addEventListener ('keyup', enableBtn);
-
 saveBtn.addEventListener('click', handleSaveBtn);
+
+reloadCards();
 
 function enableBtn(event) {
   if (event !== "") {
@@ -22,7 +25,7 @@ function enableBtn(event) {
 function handleSaveBtn(e) {
   e.preventDefault();
   instantiateIdea();
-  appendCard();
+  appendCard(titleInput.value, bodyInput.value);
   console.log(localStorage);
   console.log(ideaList);
 }
@@ -36,7 +39,7 @@ function instantiateIdea(){
   idea.saveToStorage();
 }
 
-function appendCard() {
+function appendCard(title, body) {
   var ideaCard = `
   <article class="card">
         <header>
@@ -44,8 +47,8 @@ function appendCard() {
           <img src="images/delete.svg" height="20px" width="20px">
         </header>
         <div>
-          <h2 class="card-text">${titleInput.value}</h2>
-          <p class="card-text">${bodyInput.value}</p>
+          <h2 class="title__card--text card-text">${title}</h2>
+          <p class="body__card--text card-text">${body}</p>
         </div>
         <footer>
           <img src="images/upvote.svg" height="20px" width="20px">
@@ -55,4 +58,12 @@ function appendCard() {
       </article>`
       ;  
   display.insertAdjacentHTML('afterbegin', ideaCard);
+}
+
+function reloadCards() {
+  ideaList.map(function(idea, body) {
+    // titleCard.innerText = idea.title
+    console.log(idea.title); 
+    appendCard(idea.title, idea.body);
+  });
 }
