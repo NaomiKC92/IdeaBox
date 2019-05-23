@@ -13,6 +13,7 @@ saveBtn.disabled = true;
 titleInput.addEventListener ('keyup', enableBtn);
 bodyInput.addEventListener ('keyup', enableBtn);
 saveBtn.addEventListener('click', handleSaveBtn);
+display.addEventListener('click', deleteCard);
 
 reloadCards();
 
@@ -48,11 +49,11 @@ function instantiateIdea(){
 }
 
 function appendCard(object) {
-  var ideaCard = `
+  ideaCard = `
   <article class="card" data-id="${object.id}">
         <header>
           <img src="images/star.svg" height="20px" width="20px"> 
-          <img src="images/delete.svg" height="20px" width="20px">
+          <img src="images/delete.svg" height="20px" width="20px" class="delete">
         </header>
         <div>
           <h2 class="title__card--text card-text">${object.title}</h2>
@@ -74,3 +75,11 @@ function reloadCards() {
     appendCard(idea);
   });
 }
+
+function deleteCard(e) {
+  // var deleteIcon = document.querySelectorAll(".delete")
+  if (e.target.className === "delete") {
+    e.target.closest('.card').remove();
+  }
+}
+
