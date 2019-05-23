@@ -28,8 +28,14 @@ function handleSaveBtn(e) {
   e.preventDefault();
   instantiateIdea();
   appendCard(titleInput.value, bodyInput.value);
+  clearInputs();
   console.log(localStorage);
   console.log(ideaList);
+}
+
+function clearInputs() {
+  titleInput.value = '';
+  bodyInput.value = '';
 }
 
 function instantiateIdea(){
