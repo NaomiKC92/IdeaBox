@@ -5,7 +5,7 @@ var display = document.querySelector('.section__display--bottom');
 var titleCard = document.querySelector('.title__card--text');
 var bodyCard = document.querySelector('.body__card--text');
 var ideaList = JSON.parse(localStorage.getItem('ideas')) || [];
-var qualityCounter = 0;
+// var qualityCounter = 0;
 
 
 saveBtn.disabled = true;
@@ -70,7 +70,6 @@ function appendCard(title, body) {
 
 function reloadCards() {
   ideaList.map(function(idea) {
-    // titleCard.innerText = idea.title
     console.log(idea.title); 
     appendCard(idea.title, idea.body);
   });
