@@ -44,8 +44,8 @@ function appendCard() {
           <img src="images/delete.svg" height="20px" width="20px">
         </header>
         <div>
-          <h2 class="card-text">Idea Title</h2>
-          <p class="card-text">Idea body. Your brilliant ideas go here!</p>
+          <h2 class="card-text">${titleInput.value}</h2>
+          <p class="card-text">${bodyInput.value}</p>
         </div>
         <footer>
           <img src="images/upvote.svg" height="20px" width="20px">
