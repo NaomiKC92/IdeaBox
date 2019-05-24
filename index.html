@@ -12,34 +12,33 @@
       <h1>IdeaBox Redux</h1>
       <form class="nav__form--top">
         <label class="nav__label">Filter Starred Ideas</label>
-        <button class="nav__btn" id="show-starred__btn">Show Starred Ideas</button>
+        <button class="nav__btn" id="nav__btn--starred">Show Starred Ideas</button>
       </form>
       <form class="nav__form--bottom"> 
         <label class="nav__label">Filter by Quality</label>
         <button class="nav__btn--quality">Swill</button>
         <button class="nav__btn--quality">Plausible</button>
         <button class="nav__btn--quality">Genius</button>
-        <label class="nav__label" for="new-quality__input">New Quality</label>
-        <input type="text" id="new-quality__input" class="nav__input--quality">
-        <button class="nav__btn" id="add-quality__btn">Add New Quality</button>
+        <label class="nav__label" for="nav__input--quality">New Quality</label>
+        <input type="text" id="nav__input--quality" class="nav__input--quality">
+        <button class="nav__btn" id="nav__btn--quality">Add New Quality</button>
       </form>
       <div></div>
     </nav>
-    <section class="section__form--top">
-      <form 
-      class="build-card_form--top">
-        <label for="section__form--title" class="build-card_form card-build_label">Title</label>
-        <input type="text" id="section__form--title" class="build-card_form card-build_title card-build_input">
-        <label for="section__form--body" class="build-card_form card-build_label">Body</label>
-        <textarea class="build-card_form card-build_input" id="section__form--body" rows="5" cols="35"></textarea>
-        <button alt="button-to-save-card" class="build-card_form save-btn">Save</button>
+    <section class="top__section">
+      <form class="top__form--top">
+        <label for="top__input--title" class="top__label--input top__label">Title</label>
+        <input type="text" id="top__input--title" class="top__input--title top__label--input top__input">
+        <label for="section__form--body" class="top__label--input top__label">Body</label>
+        <textarea class="top__textarea--body top__label--input top__input" id="top__textarea--body" rows="5" cols="35"></textarea>
+        <button alt="top__btn--save" class="top__label--input top__btn--save">Save</button>
       </form>
-      <form for="search-input" class="search-bar">
-          <img src="images/search-icon.svg" alt="search-image" class="search-img">
-          <input type="text" placeholder="Search ideas" id="search-input" class="search-input">
+      <form for="top__input--search" class="top__input--search top__search">
+          <img src="images/search-icon.svg" alt="search-image" class="top__img--search">
+          <input type="text" placeholder="Search ideas" id="search-input" class="top__input--search">
       </form>
     </section>
-    <section class="section__display--bottom">
+    <section class="card__section--bottom">
     </section>
   </body>
   <script type="text/javascript" src="idea.js"></script>

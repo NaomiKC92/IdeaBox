@@ -8,12 +8,14 @@ class Idea {
 
   }
 
-  saveToStorage() {
+  saveToStorage() {    
+    console.log('this is your idea list', ideaList)                    
     localStorage.setItem('ideas', JSON.stringify(ideaList));
+
   }
 
   deleteFromStorage() {
-
+    console.log('maybe')
   }
 
   updateIdea(param, maybe2) {
