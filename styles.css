@@ -86,40 +86,40 @@ h1 {
 }
   /*top-section*/
 
-.section__form--top {
+.top__section {
   background-color: #A9AAD2;
   grid-area:f;
 
 }
 
-.build-card_form--top {
+.top__form--top {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.build-card_form {
+.top__label--input {
   width: 40%;
   text-align: left;
 }
 
-.card-build_input {
+.top__input {
   border: 1.2px solid #5356A4;
   margin: 10px;
 }
 
-.card-build_label {
+.top__label {
   color: #1F1F3D;
   font-weight: bold;
   margin-top: 15px;
 }
 
-.card-build_title {
+.top__input--title {
   height: 40px;
 }
 
-.save-btn {
+.top__btn--save {
   background-color: #1F1F3D;
   border: 1px solid #1F1F3D;
   color: #FFF;
@@ -128,22 +128,20 @@ h1 {
   text-align: center;
 }
 
-.search-bar {
+.top__search {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px 0px 20px;
 }
 
-.search-input {
+.top__input--search {
   border: 1.2px solid #5356A4;
   height: 40px;
-  width: 35%;
   padding-left: 10px;
-
 }
 
-.search-img {
+.top__img--search {
   border: 1.2px solid #5356A4;
   height: 40px;
   width: auto;
@@ -152,7 +150,7 @@ h1 {
 
 /*idea cards*/
 
-.section__display--bottom{
+.card__section--bottom{
   background-color: #eaeaf4;
   grid-area: d;
   height: 90vh;
@@ -162,7 +160,8 @@ article {
   background-color: white;
   border: 1px solid #1f1f3d;
   margin: 20px;
-  width: 25%;
+  width: 27%;
+  display: inline-grid;
 }
 
 header,
@@ -187,7 +186,7 @@ div h2 {
   font-size: 16px;
 }
 
-.card-text {
+.card__text {
   padding: 10px;
 }
 

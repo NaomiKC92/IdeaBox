@@ -1,18 +1,18 @@
-var saveBtn = document.querySelector('.save-btn');
-var titleInput = document.querySelector('#section__form--title');
-var bodyInput = document.querySelector('#section__form--body');
-var display = document.querySelector('.section__display--bottom');
-var titleCard = document.querySelector('.title__card--text');
-var bodyCard = document.querySelector('.body__card--text');
+var saveBtn = document.querySelector('.top__btn--save');
+var titleInput = document.querySelector('.top__input--title');
+var bodyInput = document.querySelector('.top__textarea--body');
+var display = document.querySelector('.card__section--bottom');
+var titleCard = document.querySelector('.card__h2--title');
+var bodyCard = document.querySelector('.card__p--body');
 var ideaList = JSON.parse(localStorage.getItem('ideas')) || [];
 // var qualityCounter = 0;
-
 
 saveBtn.disabled = true;
 
 titleInput.addEventListener ('keyup', enableBtn);
 bodyInput.addEventListener ('keyup', enableBtn);
 saveBtn.addEventListener('click', handleSaveBtn);
+display.addEventListener('click', deleteCard);
 
 reloadCards();
 
@@ -27,7 +27,6 @@ function enableBtn(event) {
 function handleSaveBtn(e) {
   e.preventDefault();
   instantiateIdea();
-  appendCard(titleInput.value, bodyInput.value);
   clearInputs();
   console.log(localStorage);
   console.log(ideaList);
@@ -38,25 +37,28 @@ function clearInputs() {
   bodyInput.value = '';
 }
 
-function instantiateIdea(){
+function instantiateIdea() {
   var ideaTitle = titleInput.value;
   var ideaBody = bodyInput.value;
   var ideaId = Date.now();
-  var idea = new Idea({id: ideaId, title: ideaTitle, body: ideaBody, star: false, quality: 0});
+  idea = new Idea({id: ideaId, title: ideaTitle, body: ideaBody, star: false, quality: 0});
+  console.log(localStorage)
   ideaList.push(idea);
   idea.saveToStorage();
+  console.log(ideaList)
+  appendCard(idea);
 }
 
-function appendCard(title, body) {
-  var ideaCard = `
-  <article class="card">
+function appendCard(object) {
+  ideaCard = `
+  <article class="card" data-id="${object.id}">
         <header>
           <img src="images/star.svg" height="20px" width="20px"> 
-          <img src="images/delete.svg" height="20px" width="20px">
+          <img src="images/delete.svg" height="20px" width="20px" class="delete">
         </header>
         <div>
-          <h2 class="title__card--text card-text">${title}</h2>
-          <p class="body__card--text card-text">${body}</p>
+          <h2 class="card__h2--title card__text">${object.title}</h2>
+          <p class="card__p--body card__text">${object.body}</p>
         </div>
         <footer>
           <img src="images/upvote.svg" height="20px" width="20px">
@@ -69,8 +71,44 @@ function appendCard(title, body) {
 }
 
 function reloadCards() {
-  ideaList.map(function(idea) {
-    console.log(idea.title); 
-    appendCard(idea.title, idea.body);
+  ideaList.map(function(object) {
+    appendCard(object);
   });
 }
+
+function deleteCard(e) {
+  if (e.target.className === "delete") {
+    e.target.closest('.card').remove();
+    var ideaTitle = titleInput.value;
+    var ideaBody = bodyInput.value;
+    var ideaId = Date.now();
+    idea = new Idea({id: ideaId, title: ideaTitle, body: ideaBody, star: false, quality: 0});
+    idea.deleteFromStorage();
+    // dltFromStorage();
+  } 
+}
+
+function dltFromStorage() {
+  console.log(localStorage)
+  var parseList = JSON.parse(localStorage.getItem('ideas'));
+  console.log(parseList);
+  parseList.find(function(object){
+    console.log(object.id);
+    if (object.id){
+
+    }
+  });
+  localStorage.getItem()
+}
+
+
+
+//pull down array from local
+//use find method to find object with id
+//pull shorter array back into local 
+
+
+//
+
+
+//indexof 
