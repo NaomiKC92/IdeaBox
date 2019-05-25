@@ -14,8 +14,14 @@ class Idea {
 
   }
 
-  deleteFromStorage() {
-    console.log('maybe')
+  deleteFromStorage(cardId) {
+    console.log(ideaList)
+    var newIdeaList = ideaList.filter(function(item) {
+      return item.id !== parseInt(cardId);
+    });
+    
+    ideaList = newIdeaList;
+    this.saveToStorage();
   }
 
   updateIdea(param, maybe2) {
