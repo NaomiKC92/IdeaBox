@@ -72,11 +72,6 @@ function appendCard(object) {
 
 function reloadCards() {
   var newWorkingIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
-  console.log(newWorkingIdeas);
-  console.log(ideaList);
-  // ideaList = JSON.parse(localStorage.getItem('ideas')) || [];
-  console.log(ideaList)
-
   newWorkingIdeas.map(function(object) {
     instantiateIdea(object);
   });
@@ -84,13 +79,10 @@ function reloadCards() {
 
 function deleteCard(e) {
   if (e.target.className === "delete") {
-    e.target.closest('.card').remove();
-    // var ideaTitle = titleInput.value;
-    // var ideaBody = bodyInput.value;
-    // var ideaId = Date.now();
-    // idea = new Idea({id: ideaId, title: ideaTitle, body: ideaBody, star: false, quality: 0});
-    // console.log()
-    Idea.deleteFromStorage();
+    var card = e.target.closest('.card');
+    var cardId = e.target.closest('.card').getAttribute('data-id');
+    card.remove();
+    idea.deleteFromStorage(cardId);
   } 
 }
 

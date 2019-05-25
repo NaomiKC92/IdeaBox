@@ -14,8 +14,8 @@ class Idea {
 
   }
 
-  deleteFromStorage() {
-    console.log('maybe')
+  deleteFromStorage(cardId) {
+    console.log(cardId);
   }
 
   updateIdea(param, maybe2) {
