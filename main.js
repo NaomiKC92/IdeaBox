@@ -12,6 +12,7 @@ bodyInput.addEventListener ('keyup', enableBtn);
 saveBtn.addEventListener('click', handleSaveBtn);
 display.addEventListener('click', deleteCard);
 display.addEventListener('focusout', updateContent);
+display.addEventListener('click', updateStar);
 
 saveBtn.disabled = true;
 reloadCards();
@@ -49,7 +50,7 @@ function appendCard(object) {
   ideaCard = `
   <article class="card" data-id="${object.id}">
         <header>
-          <img src="images/star.svg" class="card__img--card"> 
+          <img src="images/star.svg" class="card__img--card" id="card__img--star"> 
           <img src="images/delete.svg" class="delete">
         </header>
         <div class="card__main--card">
@@ -64,6 +65,7 @@ function appendCard(object) {
       </article>`
       ;  
   display.insertAdjacentHTML('afterbegin', ideaCard);
+  // noIdeaDisplay();
 }
 
 function reloadCards() {
@@ -80,16 +82,34 @@ function deleteCard(e) {
     card.remove();
     idea.deleteFromStorage(cardId);
   } 
+  // noIdeaDisplay();
 }
 
 function updateContent(e) {
-  var cardToUpdate = e.target.closest('.card')
+  var cardToUpdate = e.target.closest('.card');
   var cardDataAttr = parseInt(cardToUpdate.dataset.id);
   var updatedTitle = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__h2--title`).innerText;
   var updatedBody = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__p--body`).innerText; 
   var index = findIndex(cardDataAttr);
   ideaList[index].updateIdea(updatedTitle, updatedBody);
 }
+
+function updateStar(e) {
+  var cardToUpdate = e.target.closest('.card');
+  var cardDataAttr = parseInt(cardToUpdate.dataset.id);
+  var star = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__img--card`).src;
+  if (star.indexOf('star.svg') != -1) {
+    document.getElementById('card__img--star').src = 'images/star-active.svg';
+  } else {
+    document.getElementById('card__img--star').src  = 'images/star.svg';
+  }
+  console.log(star.src);
+  // starre.classList.add('.goldStar')
+  var index = findIndex(cardDataAttr);
+  ideaList[index].updateStar(star);
+}
+
+
 
 function findIndex(card) {
   var cardId = card;
@@ -98,3 +118,13 @@ function findIndex(card) {
   })
 }
 
+// var noIdea = document.querySelector('.card__p--statement');
+
+
+// function noIdeaDisplay() {
+//  if (ideaList.length > 0){
+//    noIdea.classList.add('hidden')
+//  } else if (ideaList.length < 1) {
+//    noIdea.classList.remove('hidden')
+//  }
+// }

@@ -27,6 +27,11 @@ class Idea {
       this.saveToStorage();
   }
 
+  updateStar(star) {
+    this.star = !this.star;
+    this.saveToStorage();
+  }
+
   updateQuality() {
 
   }
