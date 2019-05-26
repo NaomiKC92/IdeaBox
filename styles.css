@@ -200,6 +200,10 @@ footer {
 .card__img--card {
   height: 35px;
 }
+/*
+.goldStar {
+  background-image: url('star-active.svg');
+}*/
 
 header img, 
 footer img,
@@ -231,5 +235,9 @@ footer {
   background-color: #5356a4;
   font-weight: 700;
   font-size: 12px;
+}
+
+.hidden {
+ display: none;
 }
 
