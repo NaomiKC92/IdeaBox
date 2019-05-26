@@ -11,7 +11,7 @@
     <nav>
       <h1>IdeaBox Redux</h1>
       <form class="nav__form--top">
-        <label class="nav__label">Filter Starred Ideas</label>
+        <label class="nav__label nav__label--star">Filter Starred Ideas</label>
         <button class="nav__btn" id="nav__btn--starred">Show Starred Ideas</button>
       </form>
       <form class="nav__form--bottom"> 
@@ -28,12 +28,12 @@
     <section class="top__section">
       <form class="top__form--top">
         <label for="top__input--title" class="top__label--input top__label">Title</label>
-        <input type="text" id="top__input--title" class="top__input--title top__label--input top__input">
+        <input type="text" id="top__input--title" class="top__input--title top__input">
         <label for="section__form--body" class="top__label--input top__label">Body</label>
-        <textarea class="top__textarea--body top__label--input top__input" id="top__textarea--body" rows="5" cols="35"></textarea>
-        <button alt="top__btn--save" class="top__label--input top__btn--save">Save</button>
+        <textarea class="top__textarea--body top__input" id="top__textarea--body" rows="5" cols="35"></textarea>
+        <button alt="top__btn--save" class="top__btn--save">Save</button>
       </form>
-      <form for="top__input--search" class="top__input--search top__search">
+      <form for="top__input--search" class="top__search">
           <img src="images/search-icon.svg" alt="search-image" class="top__img--search">
           <input type="text" placeholder="Search ideas" id="search-input" class="top__input--search">
       </form>
