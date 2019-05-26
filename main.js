@@ -13,6 +13,7 @@ titleInput.addEventListener ('keyup', enableBtn);
 bodyInput.addEventListener ('keyup', enableBtn);
 saveBtn.addEventListener('click', handleSaveBtn);
 display.addEventListener('click', deleteCard);
+display.addEventListener('focusout', updateContent);
 
 reloadCards();
 
@@ -53,17 +54,17 @@ function appendCard(object) {
   ideaCard = `
   <article class="card" data-id="${object.id}">
         <header>
-          <img src="images/star.svg" height="20px" width="20px"> 
-          <img src="images/delete.svg" height="20px" width="20px" class="delete">
+          <img src="images/star.svg" class="card__img--card"> 
+          <img src="images/delete.svg" class="delete">
         </header>
-        <div>
-          <h2 class="card__h2--title card__text">${object.title}</h2>
-          <p class="card__p--body card__text">${object.body}</p>
+        <div class="card__main--card">
+          <h2 class="card__h2--title card__text" contenteditable>${object.title}</h2>
+          <p class="card__p--body card__text" contenteditable>${object.body}</p>
         </div>
         <footer>
-          <img src="images/upvote.svg" height="20px" width="20px">
-          <p>Quality: <span>Swill</span></p>
-          <img src="images/downvote.svg" height="20px" width="20px">
+          <img src="images/upvote.svg" class="card__img--card">
+          <p class="card__footer--quality">Quality: <span class="card__span--quality">Swill</span></p>
+          <img src="images/downvote.svg" class="card__img--card">
         </footer>
       </article>`
       ;  
@@ -85,6 +86,12 @@ function deleteCard(e) {
     idea.deleteFromStorage(cardId);
   } 
 }
+
+function updateContent() {
+  // var
+ console.log('linked up!')
+}
+
 
 
 //pull down array from local
