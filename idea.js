@@ -8,24 +8,23 @@ class Idea {
 
   }
 
-  saveToStorage() {    
-    console.log('this is your idea list', ideaList)                    
+  saveToStorage() {
     localStorage.setItem('ideas', JSON.stringify(ideaList));
 
   }
 
   deleteFromStorage(cardId) {
-    console.log(ideaList)
     var newIdeaList = ideaList.filter(function(item) {
       return item.id !== parseInt(cardId);
     });
-    
     ideaList = newIdeaList;
     this.saveToStorage();
   }
 
-  updateIdea(param, maybe2) {
-
+  updateIdea(title, body) {
+      this.title = title;
+      this.body = body;
+      this.saveToStorage();
   }
 
   updateQuality() {

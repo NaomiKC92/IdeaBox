@@ -155,7 +155,6 @@ h1 {
 
 .top__img--search {
   background-color: #1F1F3D;
-  background-image: url(small.jpg);
   border: 1.2px solid #5356A4;
   height: 50px;
   padding: 5px;
@@ -170,7 +169,6 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
   grid-area: d;
   height: 90vh;
 }
@@ -210,7 +208,7 @@ footer p {
 }
 
 .card__footer--quality {
-  font-size: 1.5em;
+  font-size: 1.4em;
   padding-top: 5px;
 }
 
