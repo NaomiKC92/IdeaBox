@@ -12,7 +12,8 @@ bodyInput.addEventListener ('keyup', enableBtn);
 saveBtn.addEventListener('click', handleSaveBtn);
 display.addEventListener('click', deleteCard);
 display.addEventListener('focusout', updateContent);
-display.addEventListener('click', updateStar);
+// display.addEventListener('click', updateStar);
+display.addEventListener('click', triggerStar);
 
 saveBtn.disabled = true;
 reloadCards();
@@ -94,22 +95,20 @@ function updateContent(e) {
   ideaList[index].updateIdea(updatedTitle, updatedBody);
 }
 
-function updateStar(e) {
-  var cardToUpdate = e.target.closest('.card');
-  var cardDataAttr = parseInt(cardToUpdate.dataset.id);
-  var star = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__img--card`).src;
-  if (star.indexOf('star.svg') != -1) {
-    document.getElementById('card__img--star').src = 'images/star-active.svg';
-  } else {
-    document.getElementById('card__img--star').src  = 'images/star.svg';
-  }
-  console.log(star.src);
-  // starre.classList.add('.goldStar')
-  var index = findIndex(cardDataAttr);
-  ideaList[index].updateStar(star);
-}
-
-
+// function updateStar(e) {
+//   var cardToUpdate = e.target.closest('.card');
+//   var cardDataAttr = parseInt(cardToUpdate.dataset.id);
+//   var star = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__img--card`).src;
+//   if (star.indexOf('star.svg') != -1) {
+//     document.getElementById('card__img--star').src = 'images/star-active.svg';
+//   } else {
+//     document.getElementById('card__img--star').src  = 'images/star.svg';
+//   }
+//   console.log(star.src);
+//   // starre.classList.add('.goldStar')
+//   var index = findIndex(cardDataAttr);
+//   ideaList[index].updateStar(star);
+// }
 
 function findIndex(card) {
   var cardId = card;
@@ -117,6 +116,37 @@ function findIndex(card) {
     return item.id === cardId;
   })
 }
+
+function findKey(e) {
+  var cardId = e.target.closest('.card').getAttribute('data-id');
+  return ideaList.findIndex(function(item) {
+    return item.id === parseInt(cardId);
+  });
+}
+
+function updateStar(e, id) {
+  var starToUpdate = e.target;
+  // var title = ideaList[id].title;
+  // var body = ideaList[id].body;
+  var activeStar = 'images/star-active.svg';
+  var inactiveStar = 'images/star.svg';
+  if (ideaList[id].star === true) {
+    starToUpdate.src = activeStar;
+  } else {
+    starToUpdate.src = inactiveStar;
+  }
+}
+
+function triggerStar(e) {
+    if (e.target.className === 'card__img--card') {
+      var index = findKey(e);
+      ideaList[index].star = !ideaList[index].star;
+      ideaList[index].saveToStorage();
+      updateStar(e, index);
+    }
+  }
+
+
 
 // var noIdea = document.querySelector('.card__p--statement');
 
