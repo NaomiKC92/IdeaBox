@@ -2,9 +2,9 @@ class Idea {
   constructor (obj) {
     this.id = obj.id;
     this.title = obj.title;
-    this.body = obj.body;
-    this.star = false;
-    this.quality = 0;
+    this.body = obj.body
+    this.star = obj.star;
+    this.quality = obj.quality;
 
   }
 
@@ -32,7 +32,13 @@ class Idea {
     this.saveToStorage();
   }
 
-  updateQuality() {
 
+
+  updateQuality(quality) {
+    this.quality = quality;
+    this.saveToStorage();
   }
 }
+
+
+//rename findindex function to findIdeaIndex

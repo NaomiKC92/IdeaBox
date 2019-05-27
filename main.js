@@ -4,17 +4,22 @@ var bodyInput = document.querySelector('.top__textarea--body');
 var display = document.querySelector('.card__section--bottom');
 var titleCard = document.querySelector('.card__h2--title');
 var bodyCard = document.querySelector('.card__p--body');
+var noIdea = document.querySelector('.card__div--statement');
+// var upvote = document.querySelector('.')
 var ideaList = [];
 // var qualityCounter = 0;
+var qualityList = ["Swill", "Plausible", "Genius"]
 
 titleInput.addEventListener ('keyup', enableBtn);
 bodyInput.addEventListener ('keyup', enableBtn);
 saveBtn.addEventListener('click', handleSaveBtn);
 display.addEventListener('click', deleteCard);
+display.addEventListener('click', upvote);
 display.addEventListener('focusout', updateContent);
-display.addEventListener('click', updateStar);
+// display.addEventListener('click', updateStar);
 
 saveBtn.disabled = true;
+
 reloadCards();
 
 function enableBtn(event) {
@@ -40,7 +45,10 @@ function instantiateIdea(obj) {
   var ideaTitle = obj.title;
   var ideaBody = obj.body; 
   var ideaId = obj.id;
-  idea = new Idea({id: ideaId, title: ideaTitle, body: ideaBody, star: false, quality: 0});
+  var ideaQuality = obj.quality;
+  var ideaStar = obj.star;
+  //could be obj below
+  idea = new Idea({id: ideaId, title: ideaTitle, body: ideaBody, star: ideaStar, quality: ideaQuality});
   ideaList.push(idea);
   idea.saveToStorage();
   appendCard(idea);
@@ -58,14 +66,14 @@ function appendCard(object) {
           <p class="card__p--body card__text" contenteditable>${object.body}</p>
         </div>
         <footer>
-          <img src="images/upvote.svg" class="card__img--card">
-          <p class="card__footer--quality">Quality: <span class="card__span--quality">Swill</span></p>
+          <img src="images/upvote.svg" class="card__img--card" id="card__img--upvote">
+          <p class="card__footer--quality">Quality: <span class="card__span--quality">${qualityList[object.quality]}</span></p>
           <img src="images/downvote.svg" class="card__img--card">
         </footer>
       </article>`
       ;  
   display.insertAdjacentHTML('afterbegin', ideaCard);
-  // noIdeaDisplay();
+  hideIdeaCue();
 }
 
 function reloadCards() {
@@ -73,6 +81,7 @@ function reloadCards() {
   newWorkingIdeas.map(function(object) {
     instantiateIdea(object);
   });
+  hideIdeaCue();
 }
 
 function deleteCard(e) {
@@ -82,7 +91,7 @@ function deleteCard(e) {
     card.remove();
     idea.deleteFromStorage(cardId);
   } 
-  // noIdeaDisplay();
+  hideIdeaCue();
 }
 
 function updateContent(e) {
@@ -94,22 +103,40 @@ function updateContent(e) {
   ideaList[index].updateIdea(updatedTitle, updatedBody);
 }
 
-function updateStar(e) {
-  var cardToUpdate = e.target.closest('.card');
-  var cardDataAttr = parseInt(cardToUpdate.dataset.id);
-  var star = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__img--card`).src;
-  if (star.indexOf('star.svg') != -1) {
-    document.getElementById('card__img--star').src = 'images/star-active.svg';
-  } else {
-    document.getElementById('card__img--star').src  = 'images/star.svg';
+//when the user clicks 
+//jump up one in the array of qualities
+//perhaps via a quality counter
+//new quality to appear that is affiliated with the same quality index
+//i want it reflected in localStorage
+
+
+function upvote(e) {
+  if (e.target.id === "card__img--upvote") {
+    var cardToUpdate = e.target.closest('.card');
+    var cardDataAttr = parseInt(cardToUpdate.dataset.id);
+    var ideaListIndex = findIndex(cardDataAttr);
+    var cardQuality = ideaList[ideaListIndex].quality;
+    // var qualityIndex = findQualityIndex(cardQuality);
+    cardQuality++;
+    ideaList[ideaListIndex].updateQuality(cardQuality);
+    updateQualityDisplay(cardToUpdate, cardQuality);
   }
-  console.log(star.src);
-  // starre.classList.add('.goldStar')
-  var index = findIndex(cardDataAttr);
-  ideaList[index].updateStar(star);
 }
 
-
+// function updateStar(e) {
+//   var cardToUpdate = e.target.closest('.card');
+//   var cardDataAttr = parseInt(cardToUpdate.dataset.id);
+//   var star = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__img--card`).src;
+//   if (star.indexOf('star.svg') != -1) {
+//     document.getElementById('card__img--star').src = 'images/star-active.svg';
+//   } else {
+//     document.getElementById('card__img--star').src  = 'images/star.svg';
+//   }
+//   console.log(star.src);
+//   // starre.classList.add('.goldStar')
+//   var index = findIndex(cardDataAttr);
+//   ideaList[index].updateStar(star);
+// }
 
 function findIndex(card) {
   var cardId = card;
@@ -118,13 +145,21 @@ function findIndex(card) {
   })
 }
 
-// var noIdea = document.querySelector('.card__p--statement');
 
+function updateQualityDisplay(card, quality) {
+  card.querySelector('.card__span--quality').innerHTML = qualityList[quality];
+ }
 
-// function noIdeaDisplay() {
-//  if (ideaList.length > 0){
-//    noIdea.classList.add('hidden')
-//  } else if (ideaList.length < 1) {
-//    noIdea.classList.remove('hidden')
-//  }
+function hideIdeaCue() {
+  if (ideaList.length > 0) {
+    noIdea.classList.add("hidden");
+  }
+
+  if (ideaList < 1) {
+    noIdea.classList.remove("hidden")
+  }
+}
+
+// function showIdeaCue() {
+//   noIdea.classList.remove("hidden");
 // }
