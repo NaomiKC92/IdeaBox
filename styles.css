@@ -237,6 +237,17 @@ footer {
   font-size: 12px;
 }
 
+.card__div--statement {
+  height: 370px;
+  width: 28%;
+  margin: 20px;
+  border: 1px dotted black;
+  font-size: 1em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
 .hidden {
  display: none;
 }

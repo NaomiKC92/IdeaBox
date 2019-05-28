@@ -4,8 +4,7 @@ class Idea {
     this.title = obj.title;
     this.body = obj.body;
     this.star = obj.star || false;
-    this.quality = 0;
-
+    this.quality = obj.quality;
   }
 
   saveToStorage(globalArray) {
@@ -27,7 +26,11 @@ class Idea {
       this.saveToStorage(ideaList);
   }
 
-  updateQuality() {
-
+  updateQuality(quality) {
+    this.quality = quality;
+    this.saveToStorage();
   }
 }
+
+
+//rename findindex function to findIdeaIndex
