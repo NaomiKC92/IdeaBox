@@ -32,8 +32,6 @@ class Idea {
     this.saveToStorage();
   }
 
-
-
   updateQuality(quality) {
     this.quality = quality;
     this.saveToStorage();

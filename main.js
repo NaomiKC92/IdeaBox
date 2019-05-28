@@ -5,22 +5,24 @@ var display = document.querySelector('.card__section--bottom');
 var titleCard = document.querySelector('.card__h2--title');
 var bodyCard = document.querySelector('.card__p--body');
 var noIdea = document.querySelector('.card__div--statement');
-// var upvote = document.querySelector('.')
 var ideaList = [];
-// var qualityCounter = 0;
-var qualityList = ["Swill", "Plausible", "Genius"]
+var qualityList = ["Swill", "Plausible", "Genius"];
+var searchBar = document.querySelector('#search-input')
 
 titleInput.addEventListener ('keyup', enableBtn);
 bodyInput.addEventListener ('keyup', enableBtn);
 saveBtn.addEventListener('click', handleSaveBtn);
 display.addEventListener('click', deleteCard);
 display.addEventListener('click', upvote);
+// display.addEventListener('click', downvote);
 display.addEventListener('focusout', updateContent);
+searchBar.addEventListener('keyup', searchThru);
 // display.addEventListener('click', updateStar);
 
 saveBtn.disabled = true;
 
 reloadCards();
+
 
 function enableBtn(event) {
   if (this.value !== '') {
@@ -68,7 +70,7 @@ function appendCard(object) {
         <footer>
           <img src="images/upvote.svg" class="card__img--card" id="card__img--upvote">
           <p class="card__footer--quality">Quality: <span class="card__span--quality">${qualityList[object.quality]}</span></p>
-          <img src="images/downvote.svg" class="card__img--card">
+          <img src="images/downvote.svg" class="card__img--card" id="card__img--downvote">
         </footer>
       </article>`
       ;  
@@ -77,6 +79,7 @@ function appendCard(object) {
 }
 
 function reloadCards() {
+  // console.log('1')
   var newWorkingIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
   newWorkingIdeas.map(function(object) {
     instantiateIdea(object);
@@ -95,33 +98,29 @@ function deleteCard(e) {
 }
 
 function updateContent(e) {
-  var cardToUpdate = e.target.closest('.card');
-  var cardDataAttr = parseInt(cardToUpdate.dataset.id);
-  var updatedTitle = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__h2--title`).innerText;
-  var updatedBody = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__p--body`).innerText; 
-  var index = findIndex(cardDataAttr);
-  ideaList[index].updateIdea(updatedTitle, updatedBody);
-}
-
-//when the user clicks 
-//jump up one in the array of qualities
-//perhaps via a quality counter
-//new quality to appear that is affiliated with the same quality index
-//i want it reflected in localStorage
-
-
-function upvote(e) {
-  if (e.target.id === "card__img--upvote") {
     var cardToUpdate = e.target.closest('.card');
     var cardDataAttr = parseInt(cardToUpdate.dataset.id);
-    var ideaListIndex = findIndex(cardDataAttr);
-    var cardQuality = ideaList[ideaListIndex].quality;
-    // var qualityIndex = findQualityIndex(cardQuality);
-    cardQuality++;
-    ideaList[ideaListIndex].updateQuality(cardQuality);
-    updateQualityDisplay(cardToUpdate, cardQuality);
-  }
+    var updatedTitle = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__h2--title`).innerText;
+    var updatedBody = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__p--body`).innerText; 
+    var index = findIndex(cardDataAttr);
+    ideaList[index].updateIdea(updatedTitle, updatedBody);
 }
+
+function upvote(e) {
+  var cardToUpdate = e.target.closest('.card');
+  var cardDataAttr = parseInt(cardToUpdate.dataset.id);
+  var ideaListIndex = findIndex(cardDataAttr);
+  var cardQuality = ideaList[ideaListIndex].quality;
+
+  if (e.target.id === "card__img--upvote") {
+    cardQuality = Math.min(cardQuality + 1, qualityList.length - 1)
+  } else if (e.target.id === "card__img--downvote") {
+    cardQuality = Math.max(cardQuality - 1, 0)
+  }
+  ideaList[ideaListIndex].updateQuality(cardQuality);
+  updateQualityDisplay(cardToUpdate, cardQuality);
+}
+
 
 // function updateStar(e) {
 //   var cardToUpdate = e.target.closest('.card');
@@ -145,7 +144,6 @@ function findIndex(card) {
   })
 }
 
-
 function updateQualityDisplay(card, quality) {
   card.querySelector('.card__span--quality').innerHTML = qualityList[quality];
  }
@@ -154,12 +152,16 @@ function hideIdeaCue() {
   if (ideaList.length > 0) {
     noIdea.classList.add("hidden");
   }
-
   if (ideaList < 1) {
     noIdea.classList.remove("hidden")
   }
 }
 
-// function showIdeaCue() {
-//   noIdea.classList.remove("hidden");
-// }
+function searchThru() {
+  var searchInput = searchBar.value;
+  var searchList = ideaList;
+  console.log(searchInput)
+}
+
+
+
