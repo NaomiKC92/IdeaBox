@@ -24,6 +24,7 @@ saveBtn.disabled = true;
 window.onload = function() {
   reloadCards();
 }
+// reloadCards();
 
 function enableBtn(event) {
   if (this.value !== '') {
@@ -53,6 +54,7 @@ function instantiateIdea(obj) {
   //could be obj below
   idea = new Idea({id: ideaId, title: ideaTitle, body: ideaBody, star: ideaStar, quality: ideaQuality});
   ideaList.push(idea);
+  idea.saveToStorage(ideaList);
   appendCard(idea);
 }
 
@@ -79,13 +81,21 @@ function appendCard(object) {
   hideIdeaCue();
 }
 
+// function reloadCards() {
+//   var newWorkingIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
+//   console.log(newWorkingIdeas)
+//   ideasList = newWorkingIdeas.map(function(object) {
+//     return instantiateIdea(object);
+//   });
+//   hideIdeaCue();
+// }
+
 function reloadCards() {
-  var newWorkingIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
-  console.log(newWorkingIdeas)
-  ideasList = newWorkingIdeas.map(function(object) {
-    return instantiateIdea(object);
-  });
-  hideIdeaCue();
+var newWorkingIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
+ newWorkingIdeas.map(function(object) {
+   instantiateIdea(object);
+ });
+ hideIdeaCue();
 }
 
 function deleteCard(e) {
@@ -108,19 +118,35 @@ function deleteCard(e) {
 // }
 
 function upvote(e) {
-  var cardToUpdate = e.target.closest('.card');
-  var cardDataAttr = parseInt(cardToUpdate.dataset.id);
-  var ideaListIndex = findIndex(cardDataAttr);
-  var cardQuality = ideaList[ideaListIndex].quality;
-
-  if (e.target.id === "card__img--upvote") {
-    cardQuality = Math.min(cardQuality + 1, qualityList.length - 1)
-  } else if (e.target.id === "card__img--downvote") {
-    cardQuality = Math.max(cardQuality - 1, 0)
-  }
-  ideaList[ideaListIndex].updateQuality(cardQuality);
-  updateQualityDisplay(cardToUpdate, cardQuality);
+ if (e.target.id === "card__img--upvote") {
+   var cardToUpdate = e.target.closest('.card');
+   var cardDataAttr = parseInt(cardToUpdate.dataset.id);
+   var ideaListIndex = findIndex(cardDataAttr);
+   var cardQuality = ideaList[ideaListIndex].quality;
+   cardQuality = Math.min(cardQuality + 1, qualityList.length - 1)
+   ideaList[ideaListIndex].updateQuality(cardQuality);
+   updateQualityDisplay(cardToUpdate, cardQuality);
+ } else if (e.target.id === "card__img--downvote") {
+   cardQuality = Math.max(cardQuality - 1, 0)
+ ideaList[ideaListIndex].updateQuality(cardQuality);
+ updateQualityDisplay(cardToUpdate, cardQuality);
+ }
 }
+
+// function upvote(e) {
+//   var cardToUpdate = e.target.closest('.card');
+//   var cardDataAttr = parseInt(cardToUpdate.dataset.id);
+//   var ideaListIndex = findIndex(cardDataAttr);
+//   var cardQuality = ideaList[ideaListIndex].quality;
+
+//   if (e.target.id === "card__img--upvote") {
+//     cardQuality = Math.min(cardQuality + 1, qualityList.length - 1)
+//   } else if (e.target.id === "card__img--downvote") {
+//     cardQuality = Math.max(cardQuality - 1, 0)
+//   }
+//   ideaList[ideaListIndex].updateQuality(cardQuality);
+//   updateQualityDisplay(cardToUpdate, cardQuality);
+// }
 
 function enterContent(e) {
   if (e.keyCode === 13) {
