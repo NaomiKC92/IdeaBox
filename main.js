@@ -7,7 +7,7 @@ var bodyCard = document.querySelector('.card__p--body');
 var noIdea = document.querySelector('.card__div--statement');
 var ideaList = [];
 var qualityList = ["Swill", "Plausible", "Genius"];
-var searchBar = document.querySelector('#search-input')
+var searchBar = document.querySelector('#search-input');
 
 titleInput.addEventListener ('keyup', enableBtn);
 bodyInput.addEventListener ('keyup', enableBtn);
@@ -21,8 +21,9 @@ display.addEventListener('click', triggerStar);
 
 saveBtn.disabled = true;
 
-reloadCards();
-
+window.onload = function() {
+  reloadCards();
+}
 
 function enableBtn(event) {
   if (this.value !== '') {
@@ -47,20 +48,20 @@ function instantiateIdea(obj) {
   var ideaTitle = obj.title;
   var ideaBody = obj.body; 
   var ideaId = obj.id;
+  var ideaStar = obj.star
   var ideaQuality = obj.quality;
-  var ideaStar = obj.star;
   //could be obj below
   idea = new Idea({id: ideaId, title: ideaTitle, body: ideaBody, star: ideaStar, quality: ideaQuality});
   ideaList.push(idea);
-  idea.saveToStorage();
   appendCard(idea);
 }
 
 function appendCard(object) {
-  ideaCard = `
+  var starState = object.star ? 'star-active.svg' : 'star.svg';
+  var ideaCard = `
   <article class="card" data-id="${object.id}">
         <header>
-          <img src="images/star.svg" class="card__img--card" id="card__img--star"> 
+          <img src="images/${starState}" class="card__img--card card__img--star" id="card__img--star"> 
           <img src="images/delete.svg" class="delete">
         </header>
         <div class="card__main--card">
@@ -79,10 +80,10 @@ function appendCard(object) {
 }
 
 function reloadCards() {
-  // console.log('1')
   var newWorkingIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
-  newWorkingIdeas.map(function(object) {
-    instantiateIdea(object);
+  console.log(newWorkingIdeas)
+  ideasList = newWorkingIdeas.map(function(object) {
+    return instantiateIdea(object);
   });
   hideIdeaCue();
 }
@@ -97,14 +98,14 @@ function deleteCard(e) {
   hideIdeaCue();
 }
 
-function updateContent(e) {
-    var cardToUpdate = e.target.closest('.card');
-    var cardDataAttr = parseInt(cardToUpdate.dataset.id);
-    var updatedTitle = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__h2--title`).innerText;
-    var updatedBody = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__p--body`).innerText; 
-    var index = findIndex(cardDataAttr);
-    ideaList[index].updateIdea(updatedTitle, updatedBody);
-}
+// function updateContent(e) {
+//     var cardToUpdate = e.target.closest('.card');
+//     var cardDataAttr = parseInt(cardToUpdate.dataset.id);
+//     var updatedTitle = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__h2--title`).innerText;
+//     var updatedBody = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__p--body`).innerText; 
+//     var index = findIndex(cardDataAttr);
+//     ideaList[index].updateIdea(updatedTitle, updatedBody, ideaList[index].star);
+// }
 
 function upvote(e) {
   var cardToUpdate = e.target.closest('.card');
@@ -137,7 +138,7 @@ function updateContent(e) {
   var blurredTitle = titleOutput.blur();
   var blurredBody = bodyOutput.blur();
   var index = findIndex(cardDataAttr);
-  ideaList[index].updateIdea(updatedTitle, updatedBody);
+  ideaList[index].updateIdea(updatedTitle, updatedBody, ideaList[index].star);
 }
 
 function findIndex(card) {
@@ -185,14 +186,12 @@ function updateStar(e, id) {
 }
 
 function triggerStar(e) {
-    if (e.target.className === 'card__img--card') {
+    if (e.target.id === 'card__img--star') {
       var index = findKey(e);
       ideaList[index].star = !ideaList[index].star;
-      console.log(ideaList[index].star);
       ideaList[index].updateIdea(ideaList[index].title, ideaList[index].body, ideaList[index].star);
       updateStar(e, index);
+      console.log(ideaList)
     }
   }
-
-
 
