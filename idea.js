@@ -3,14 +3,13 @@ class Idea {
     this.id = obj.id;
     this.title = obj.title;
     this.body = obj.body;
-    this.star = false;
+    this.star = obj.star || false;
     this.quality = 0;
 
   }
 
-  saveToStorage() {
-    localStorage.setItem('ideas', JSON.stringify(ideaList));
-
+  saveToStorage(globalArray) {
+    localStorage.setItem('ideas', JSON.stringify(globalArray));
   }
 
   deleteFromStorage(cardId) {
@@ -22,17 +21,11 @@ class Idea {
   }
 
   updateIdea(title, body, star) {
-    console.log('killer')
       this.title = title;
       this.body = body;
       this.star = star;
-      this.saveToStorage();
+      this.saveToStorage(ideaList);
   }
-
-  // updateStar(star) {
-  //   this.star = !this.star;
-  //   this.saveToStorage();
-  // }
 
   updateQuality() {
 
