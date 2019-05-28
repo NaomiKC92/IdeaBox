@@ -21,16 +21,18 @@ class Idea {
     this.saveToStorage();
   }
 
-  updateIdea(title, body) {
+  updateIdea(title, body, star) {
+    console.log('killer')
       this.title = title;
       this.body = body;
+      this.star = star;
       this.saveToStorage();
   }
 
-  updateStar(star) {
-    this.star = !this.star;
-    this.saveToStorage();
-  }
+  // updateStar(star) {
+  //   this.star = !this.star;
+  //   this.saveToStorage();
+  // }
 
   updateQuality() {
 
