@@ -12,7 +12,9 @@ bodyInput.addEventListener ('keyup', enableBtn);
 saveBtn.addEventListener('click', handleSaveBtn);
 display.addEventListener('click', deleteCard);
 display.addEventListener('focusout', updateContent);
-display.addEventListener('click', updateStar);
+display.addEventListener('keydown', enterContent);
+display.addEventListener('click', triggerStar);
+
 
 saveBtn.disabled = true;
 reloadCards();
@@ -82,34 +84,26 @@ function deleteCard(e) {
     card.remove();
     idea.deleteFromStorage(cardId);
   } 
-  // noIdeaDisplay();
+}
+
+function enterContent(e) {
+  if (e.keyCode === 13) {
+    updateContent(e);
+  }
 }
 
 function updateContent(e) {
   var cardToUpdate = e.target.closest('.card');
   var cardDataAttr = parseInt(cardToUpdate.dataset.id);
-  var updatedTitle = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__h2--title`).innerText;
-  var updatedBody = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__p--body`).innerText; 
+  var titleOutput = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__h2--title`);
+  var bodyOutput = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__p--body`);
+  var updatedTitle = titleOutput.innerText;
+  var updatedBody = bodyOutput.innerText; 
+  var blurredTitle = titleOutput.blur();
+  var blurredBody = bodyOutput.blur();
   var index = findIndex(cardDataAttr);
   ideaList[index].updateIdea(updatedTitle, updatedBody);
 }
-
-function updateStar(e) {
-  var cardToUpdate = e.target.closest('.card');
-  var cardDataAttr = parseInt(cardToUpdate.dataset.id);
-  var star = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__img--card`).src;
-  if (star.indexOf('star.svg') != -1) {
-    document.getElementById('card__img--star').src = 'images/star-active.svg';
-  } else {
-    document.getElementById('card__img--star').src  = 'images/star.svg';
-  }
-  console.log(star.src);
-  // starre.classList.add('.goldStar')
-  var index = findIndex(cardDataAttr);
-  ideaList[index].updateStar(star);
-}
-
-
 
 function findIndex(card) {
   var cardId = card;
@@ -117,6 +111,36 @@ function findIndex(card) {
     return item.id === cardId;
   })
 }
+
+function findKey(e) {
+  var cardId = e.target.closest('.card').getAttribute('data-id');
+  return ideaList.findIndex(function(item) {
+    return item.id === parseInt(cardId);
+  });
+}
+
+function updateStar(e, id) {
+  var starToUpdate = e.target;
+  var activeStar = 'images/star-active.svg';
+  var inactiveStar = 'images/star.svg';
+  if (ideaList[id].star === true) {
+    starToUpdate.src = activeStar;
+  } else {
+    starToUpdate.src = inactiveStar;
+  }
+}
+
+function triggerStar(e) {
+    if (e.target.className === 'card__img--card') {
+      var index = findKey(e);
+      ideaList[index].star = !ideaList[index].star;
+      console.log(ideaList[index].star);
+      ideaList[index].updateIdea(ideaList[index].title, ideaList[index].body, ideaList[index].star);
+      updateStar(e, index);
+    }
+  }
+
+
 
 // var noIdea = document.querySelector('.card__p--statement');
 
