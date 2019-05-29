@@ -24,7 +24,6 @@ saveBtn.disabled = true;
 window.onload = function() {
   reloadCards();
 }
-// reloadCards();
 
 function enableBtn(event) {
   if (this.value !== '') {
@@ -81,15 +80,6 @@ function appendCard(object) {
   hideIdeaCue();
 }
 
-// function reloadCards() {
-//   var newWorkingIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
-//   console.log(newWorkingIdeas)
-//   ideasList = newWorkingIdeas.map(function(object) {
-//     return instantiateIdea(object);
-//   });
-//   hideIdeaCue();
-// }
-
 function reloadCards() {
 var newWorkingIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
  newWorkingIdeas.map(function(object) {
@@ -108,15 +98,6 @@ function deleteCard(e) {
   hideIdeaCue();
 }
 
-// function updateContent(e) {
-//     var cardToUpdate = e.target.closest('.card');
-//     var cardDataAttr = parseInt(cardToUpdate.dataset.id);
-//     var updatedTitle = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__h2--title`).innerText;
-//     var updatedBody = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__p--body`).innerText; 
-//     var index = findIndex(cardDataAttr);
-//     ideaList[index].updateIdea(updatedTitle, updatedBody, ideaList[index].star);
-// }
-
 function upvote(e) {
  if (e.target.id === "card__img--upvote") {
    var cardToUpdate = e.target.closest('.card');
@@ -133,21 +114,6 @@ function upvote(e) {
  }
 }
 
-// function upvote(e) {
-//   var cardToUpdate = e.target.closest('.card');
-//   var cardDataAttr = parseInt(cardToUpdate.dataset.id);
-//   var ideaListIndex = findIndex(cardDataAttr);
-//   var cardQuality = ideaList[ideaListIndex].quality;
-
-//   if (e.target.id === "card__img--upvote") {
-//     cardQuality = Math.min(cardQuality + 1, qualityList.length - 1)
-//   } else if (e.target.id === "card__img--downvote") {
-//     cardQuality = Math.max(cardQuality - 1, 0)
-//   }
-//   ideaList[ideaListIndex].updateQuality(cardQuality);
-//   updateQualityDisplay(cardToUpdate, cardQuality);
-// }
-
 function enterContent(e) {
   if (e.keyCode === 13) {
     updateContent(e);
@@ -160,7 +126,7 @@ function updateContent(e) {
   var titleOutput = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__h2--title`);
   var bodyOutput = document.querySelector(`.card[data-id="${cardDataAttr}"] .card__p--body`);
   var updatedTitle = titleOutput.innerText;
-  var updatedBody = bodyOutput.innerText; 
+  var updatedBody = bodyOutput.innerText;
   var blurredTitle = titleOutput.blur();
   var blurredBody = bodyOutput.blur();
   var index = findIndex(cardDataAttr);
@@ -190,7 +156,6 @@ function hideIdeaCue() {
 function searchThru() {
   var searchInput = searchBar.value;
   var searchList = ideaList;
-  console.log(searchInput)
 }
 
 function findKey(e) {
@@ -217,7 +182,6 @@ function triggerStar(e) {
       ideaList[index].star = !ideaList[index].star;
       ideaList[index].updateIdea(ideaList[index].title, ideaList[index].body, ideaList[index].star);
       updateStar(e, index);
-      console.log(ideaList)
     }
   }
 
