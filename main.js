@@ -12,8 +12,8 @@ var searchBar = document.querySelector('#search-input');
 titleInput.addEventListener ('keyup', enableBtn);
 bodyInput.addEventListener ('keyup', enableBtn);
 saveBtn.addEventListener('click', handleSaveBtn);
-display.addEventListener('click', deleteCard);
-display.addEventListener('click', upvote);
+// display.addEventListener('click', deleteCard);
+display.addEventListener('click', listenForClick);
 display.addEventListener('focusout', updateContent);
 searchBar.addEventListener('keyup', searchThru);
 display.addEventListener('keydown', enterContent);
@@ -23,6 +23,15 @@ saveBtn.disabled = true;
 
 window.onload = function() {
   reloadCards();
+}
+
+function listenForClick(e) {
+  if (e.target.id === "card__img--upvote" || "card__img--downvote") {
+    upvote(e) 
+  }  
+  if (e.target.className === "delete") {
+    deleteCard(e)
+  }
 }
 
 function enableBtn(event) {
@@ -99,20 +108,28 @@ function deleteCard(e) {
 }
 
 function upvote(e) {
- if (e.target.id === "card__img--upvote") {
    var cardToUpdate = e.target.closest('.card');
    var cardDataAttr = parseInt(cardToUpdate.dataset.id);
    var ideaListIndex = findIndex(cardDataAttr);
    var cardQuality = ideaList[ideaListIndex].quality;
+  if (e.target.id === "card__img--upvote") {
    cardQuality = Math.min(cardQuality + 1, qualityList.length - 1)
+  } else if (e.target.id === "card__img--downvote") {
+   cardQuality = Math.max(cardQuality - 1, 0)
+  }
    ideaList[ideaListIndex].updateQuality(cardQuality);
    updateQualityDisplay(cardToUpdate, cardQuality);
- } else if (e.target.id === "card__img--downvote") {
-   cardQuality = Math.max(cardQuality - 1, 0)
- ideaList[ideaListIndex].updateQuality(cardQuality);
- updateQualityDisplay(cardToUpdate, cardQuality);
- }
 }
+
+ // function downvote() {
+ //   var cardToUpdate = e.target.closest('.card');
+ //   var cardDataAttr = parseInt(cardToUpdate.dataset.id);
+ //   var ideaListIndex = findIndex(cardDataAttr);
+ //   var cardQuality = ideaList[ideaListIndex].quality;
+ //   ideaList[ideaListIndex].updateQuality(cardQuality);
+ //   updateQualityDisplay(cardToUpdate, cardQuality);
+ // }
+// }
 
 function enterContent(e) {
   if (e.keyCode === 13) {
@@ -184,4 +201,15 @@ function triggerStar(e) {
       updateStar(e, index);
     }
   }
+
+function searchThru(e) {
+  var searchInput = e.target.value.toLowerCase();
+  var results = ideaList.filter(function(idea){
+    return idea.title.toLowerCase().includes(searchInput) || idea.body.toLowerCase().includes(searchInput);  
+  });
+  document.querySelector(".card").innerHTML = '';
+  results.map(function(idea){
+    appendCard(idea)
+  });
+};
 
