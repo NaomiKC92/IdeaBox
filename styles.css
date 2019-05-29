@@ -162,7 +162,7 @@ h1 {
   border-right: 1px solid #1F1F3D;
 }
 
-/*idea cards*/
+/*IDEA CARDS*/
 
 .card__section--bottom{
   background-color: #eaeaf4;
@@ -200,10 +200,6 @@ footer {
 .card__img--card {
   height: 35px;
 }
-/*
-.goldStar {
-  background-image: url('star-active.svg');
-}*/
 
 header img, 
 footer img,
@@ -252,16 +248,6 @@ footer {
  display: none;
 }
 
-
-
-/*@media screen and (max-width: 937px) {
-  .card {
-   height: 200px;
-   width: 40%;
- }
-*/
-/*}*/
-
 @media screen and (max-width: 936px) {
 
  h1 {
@@ -300,8 +286,8 @@ footer {
 @media screen and (max-width: 750px) {
 
  h1 {
-   text-align: center;
-   font-size: 1.2em;
+   display: inline;
+   font-size: 1.3em;
  }
 
  nav {
@@ -335,7 +321,14 @@ footer {
   
   body {
   display: block;
-}
+  }
+
+  nav h1 {
+    border-bottom: none;
+   font-size: 1.5em;
+   text-align: center;
+  }
+  
   .nav__form--top {
     display: none;
   }
@@ -360,41 +353,38 @@ footer {
     width: 75%;
     height: 40px;
   }
+  /*margin-top: 0;*/
 
   .top__img--search {
     width: 15%;
     height: 40px;
   }
 
-  nav h1 {
-    margin-bottom: 0
-  }
 
   .card {
    height: 225px;
    width: 90%;
    /*margin-bottom: 20px;*/
- }
+  }
 
- .card__main--card {
+  .card__main--card {
   height: 141px;
- }
+  }
 
- .top__section {
+  .top__section {
   height: 56vh;
   margin-bottom: 0px;
- }
+  }
 
  .top__label {
-  font-size: inherit;
+   font-size: inherit;
   width: 85%;
- }
+  }
 
- .card__section--bottom {
+  .card__section--bottom {
   display: flex;
   flex-direction: column;
-  /*margin-top: 0;*/
-}
+  }
 
 }
 
