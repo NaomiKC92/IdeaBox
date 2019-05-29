@@ -22,6 +22,7 @@ searchBar.addEventListener('keyup', searchThru);
 display.addEventListener('keydown', enterContent);
 display.addEventListener('click', triggerStar);
 menuBtn.addEventListener('click', displayNavMenu);
+menuX.addEventListener('click', displayNavMenu)
 
 saveBtn.disabled = true;
 
@@ -34,7 +35,12 @@ function displayNavMenu(e) {
   if (e.target === menuBtn) {
     menuBtn.classList.add('hidden');
     menuX.classList.remove('hidden');
-    mobileNav.classList.remove('.nav__form--mobile');
+    mobileNav.classList.remove('hidden');
+  }
+  if (e.target === menuX) {
+    menuX.classList.add('hidden');
+    menuBtn.classList.remove('hidden');
+    mobileNav.classList.add('hidden');
   }
 
 }
