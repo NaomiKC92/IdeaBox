@@ -16,7 +16,7 @@ class Idea {
       return item.id !== parseInt(cardId);
     });
     ideaList = newIdeaList;
-    this.saveToStorage();
+    this.saveToStorage(ideaList);
   }
 
   updateIdea(title, body, star) {
@@ -28,7 +28,7 @@ class Idea {
 
   updateQuality(quality) {
     this.quality = quality;
-    this.saveToStorage();
+    this.saveToStorage(ideaList);
   }
 }
 
