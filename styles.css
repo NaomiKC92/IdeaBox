@@ -70,7 +70,7 @@ h1 {
 	margin: 15px 10px;
 	width: 90%;
 	height: 45px;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .nav__form--top {
@@ -170,7 +170,7 @@ h1 {
   flex-wrap: wrap;
   flex-direction: row;
   grid-area: d;
-  height: 90vh;
+  height: 120vh;
 }
 
 .card__main--card {
@@ -251,4 +251,152 @@ footer {
 .hidden {
  display: none;
 }
+
+
+
+/*@media screen and (max-width: 937px) {
+  .card {
+   height: 200px;
+   width: 40%;
+ }
+*/
+/*}*/
+
+@media screen and (max-width: 936px) {
+
+ h1 {
+   font-size: 1.4em;
+ }
+
+ nav {
+   font-size: 1em;
+ }
+
+ .nav__btn {
+   height: 38px;
+   width: 90%;
+   font-size: .9em;
+ }
+
+ .nav__input--quality {
+   height: 38px;
+ }
+
+ .card__section--bottom {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   height: 180vh;
+ }
+
+ .card {
+   height: 200px;
+   width: 43%;
+ }
+
+}
+
+
+@media screen and (max-width: 750px) {
+
+ h1 {
+   text-align: center;
+   font-size: 1.2em;
+ }
+
+ nav {
+   font-size: .9em;
+ }
+
+ .nav__btn {
+   height: 35px;
+   width: 90%;
+   font-size: .8em;
+ }
+
+ .nav__input--quality {
+   height: 33px;
+ }
+
+ .card__section--bottom {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+ }
+
+ .card {
+   height: 200px;
+   width: 40%;
+ }
+
+}
+
+@media screen and (max-width: 600px) {
+  
+  body {
+  display: block;
+}
+  .nav__form--top {
+    display: none;
+  }
+  .nav__form--bottom {
+    display: none;
+  }
+  .top__input--title {
+    width: 90%;
+    height: 40px;
+  }
+
+  .top__textarea--body {
+    width: 90%;
+  }
+  
+  .top__btn--save {
+    width: 90%;
+    height: 40px;
+  }  
+
+  .top__input--search {
+    width: 75%;
+    height: 40px;
+  }
+
+  .top__img--search {
+    width: 15%;
+    height: 40px;
+  }
+
+  nav h1 {
+    margin-bottom: 0
+  }
+
+  .card {
+   height: 225px;
+   width: 90%;
+   /*margin-bottom: 20px;*/
+ }
+
+ .card__main--card {
+  height: 141px;
+ }
+
+ .top__section {
+  height: 56vh;
+  margin-bottom: 0px;
+ }
+
+ .top__label {
+  font-size: inherit;
+  width: 85%;
+ }
+
+ .card__section--bottom {
+  display: flex;
+  flex-direction: column;
+  /*margin-top: 0;*/
+}
+
+}
+
+
 
