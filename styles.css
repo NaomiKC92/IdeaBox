@@ -20,11 +20,15 @@ nav {
 	height: 100%;
 }
 
+.nav__img--hamburger {
+  display: none;
+}
+
 h1 {
 	border-bottom: 1px solid #a9aad2;
 	color: #fff;
 	font-family: 'open sans', bold;
-	font-size: 1.6em;
+	font-size: 1.2em;
   padding: 0px 18px 18px 18px;
 }
 
@@ -34,8 +38,18 @@ h1 {
 
 .nav__input--quality {
 	height: 40px;
-  width: 90%;
-	margin: 0px 0px 15px 10px;
+  width: 97%;
+	/*margin: 0px 0px 15px 10px;*/
+}
+
+.nav__btn {
+	background-color: #5356a4;
+	border-color: #353567;
+	color: #e9e9f3;
+	margin: 15px 10px;
+	width: 90%;
+	height: 45px;
+  font-size: .9em;
 }
 
 .nav__btn--quality:hover {
@@ -53,6 +67,12 @@ h1 {
   padding-left: 10px;
 	text-align: left;
 	font-weight: 300;
+  width: 97%;
+}
+
+.nav__quality {
+  width: 97%;
+  margin-left: 0px;
 }
 
 .nav__label {
@@ -63,15 +83,6 @@ h1 {
 	margin: 15px 10px 10px;
 }
 
-.nav__btn {
-	background-color: #5356a4;
-	border-color: #353567;
-	color: #e9e9f3;
-	margin: 15px 10px;
-	width: 90%;
-	height: 45px;
-  font-size: 1.2em;
-}
 
 .nav__form--top {
 	align-content: center;
@@ -162,7 +173,7 @@ h1 {
   border-right: 1px solid #1F1F3D;
 }
 
-/*idea cards*/
+/*IDEA CARDS*/
 
 .card__section--bottom{
   background-color: #eaeaf4;
@@ -170,7 +181,7 @@ h1 {
   flex-wrap: wrap;
   flex-direction: row;
   grid-area: d;
-  height: 90vh;
+  height: 120vh;
 }
 
 .card__main--card {
@@ -200,10 +211,6 @@ footer {
 .card__img--card {
   height: 35px;
 }
-/*
-.goldStar {
-  background-image: url('star-active.svg');
-}*/
 
 header img, 
 footer img,
@@ -251,4 +258,199 @@ footer {
 .hidden {
  display: none;
 }
+
+@media screen and (max-width: 936px) {
+
+ h1 {
+   font-size: .9em;
+ }
+
+ nav {
+   font-size: 1em;
+ }
+
+ .nav__btn {
+   height: 38px;
+   width: 90%;
+   font-size: .8em;
+ }
+
+ .nav__quality {
+  width: 97%;
+  margin-left: 0px;
+}
+
+ .nav__label {
+  font-size: .85em;
+ }
+
+ .nav__input--quality {
+   height: 38px;
+ }
+
+ .card__section--bottom {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   height: 180vh;
+ }
+
+ .card {
+   height: 200px;
+   width: 43%;
+ }
+
+}
+
+
+@media screen and (max-width: 750px) {
+
+ h1 {
+   display: inline;
+   font-size: 1.3em;
+ }
+
+ nav {
+   font-size: .9em;
+ }
+
+ .nav__btn {
+   height: 35px;
+   width: 90%;
+   font-size: .7em;
+ }
+
+ .nav__quality {
+  width: 97%;
+  margin-left: 0px;
+}
+
+ .nav__input--quality {
+   height: 33px;
+ }
+
+ .nav__label {
+  font-size: .7em;
+ }
+
+ .card__section--bottom {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+ }
+
+ .card {
+   height: 200px;
+   width: 40%;
+ }
+
+}
+
+@media screen and (max-width: 600px) {
+  
+  body {
+    display: block;
+    height: 55px;
+  }
+
+  nav {
+    /*display: flex;
+    flex-direction: row;*/
+    /*display: grid;
+    grid-template-areas: 
+    "a b";
+    grid-template-columns: 10% 90%;*/
+  }
+
+  .nav__img--hamburger {
+    position: absolute;
+    top: 13px;
+    left: 10px;
+    /*display: grid;
+    grid-area: a;*/
+    /*margin: 10px;*/
+    display: block;
+    height: 30px;
+    width: 30px;
+  }
+
+  nav h1 {
+   /*display: grid;
+   grid-area: b;*/
+   border-bottom: none;
+   font-size: 1.4em;
+   text-align: center;
+   margin-top: 20px;
+   background-image: "images/menu.svg";
+  
+  }
+
+  .nav__form--top {
+    display: none;
+  }
+  .nav__form--bottom {
+    display: none;
+  }
+  .top__input--title {
+    width: 90%;
+    height: 40px;
+  }
+
+  .top__textarea--body {
+    width: 90%;
+  }
+  
+  .top__btn--save {
+    width: 90%;
+    height: 40px;
+  }  
+
+  .top__input--search {
+    width: 75%;
+    height: 40px;
+  }
+  /*margin-top: 0;*/
+
+  .top__img--search {
+    width: 15%;
+    height: 40px;
+  }
+
+  .card {
+   height: 225px;
+   width: 90%;
+   /*margin-bottom: 20px;*/
+  }
+
+  .card__main--card {
+  height: 141px;
+  }
+
+  .card__div--statement {
+    height: 225px;
+    width: 90%;
+  }
+
+  .card__div--statement p {
+    margin-top: 60px;
+  }
+
+  .top__section {
+  height: 46vh;
+  margin-bottom: 0px;
+  }
+
+ .top__label {
+   font-size: inherit;
+  width: 85%;
+  }
+
+  .card__section--bottom {
+  display: flex;
+  flex-direction: column;
+  }
+
+}
+
+
 
