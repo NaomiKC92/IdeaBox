@@ -20,11 +20,15 @@ nav {
 	height: 100%;
 }
 
+.nav__img--hamburger {
+  display: none;
+}
+
 h1 {
 	border-bottom: 1px solid #a9aad2;
 	color: #fff;
 	font-family: 'open sans', bold;
-	font-size: 1.6em;
+	font-size: 1.2em;
   padding: 0px 18px 18px 18px;
 }
 
@@ -34,8 +38,18 @@ h1 {
 
 .nav__input--quality {
 	height: 40px;
-  width: 90%;
-	margin: 0px 0px 15px 10px;
+  width: 97%;
+	/*margin: 0px 0px 15px 10px;*/
+}
+
+.nav__btn {
+	background-color: #5356a4;
+	border-color: #353567;
+	color: #e9e9f3;
+	margin: 15px 10px;
+	width: 90%;
+	height: 45px;
+  font-size: .9em;
 }
 
 .nav__btn--quality:hover {
@@ -53,6 +67,12 @@ h1 {
   padding-left: 10px;
 	text-align: left;
 	font-weight: 300;
+  width: 97%;
+}
+
+.nav__quality {
+  width: 97%;
+  margin-left: 0px;
 }
 
 .nav__label {
@@ -63,15 +83,6 @@ h1 {
 	margin: 15px 10px 10px;
 }
 
-.nav__btn {
-	background-color: #5356a4;
-	border-color: #353567;
-	color: #e9e9f3;
-	margin: 15px 10px;
-	width: 90%;
-	height: 45px;
-  font-size: 1.1em;
-}
 
 .nav__form--top {
 	align-content: center;
@@ -251,7 +262,7 @@ footer {
 @media screen and (max-width: 936px) {
 
  h1 {
-   font-size: 1.4em;
+   font-size: .9em;
  }
 
  nav {
@@ -261,7 +272,16 @@ footer {
  .nav__btn {
    height: 38px;
    width: 90%;
-   font-size: .9em;
+   font-size: .8em;
+ }
+
+ .nav__quality {
+  width: 97%;
+  margin-left: 0px;
+}
+
+ .nav__label {
+  font-size: .85em;
  }
 
  .nav__input--quality {
@@ -297,11 +317,20 @@ footer {
  .nav__btn {
    height: 35px;
    width: 90%;
-   font-size: .8em;
+   font-size: .7em;
  }
+
+ .nav__quality {
+  width: 97%;
+  margin-left: 0px;
+}
 
  .nav__input--quality {
    height: 33px;
+ }
+
+ .nav__label {
+  font-size: .7em;
  }
 
  .card__section--bottom {
@@ -320,15 +349,42 @@ footer {
 @media screen and (max-width: 600px) {
   
   body {
-  display: block;
+    display: block;
+    height: 55px;
+  }
+
+  nav {
+    /*display: flex;
+    flex-direction: row;*/
+    /*display: grid;
+    grid-template-areas: 
+    "a b";
+    grid-template-columns: 10% 90%;*/
+  }
+
+  .nav__img--hamburger {
+    position: absolute;
+    top: 13px;
+    left: 10px;
+    /*display: grid;
+    grid-area: a;*/
+    /*margin: 10px;*/
+    display: block;
+    height: 30px;
+    width: 30px;
   }
 
   nav h1 {
-    border-bottom: none;
-   font-size: 1.5em;
+   /*display: grid;
+   grid-area: b;*/
+   border-bottom: none;
+   font-size: 1.4em;
    text-align: center;
-  }
+   margin-top: 20px;
+   background-image: "images/menu.svg";
   
+  }
+
   .nav__form--top {
     display: none;
   }
@@ -360,7 +416,6 @@ footer {
     height: 40px;
   }
 
-
   .card {
    height: 225px;
    width: 90%;
@@ -371,8 +426,17 @@ footer {
   height: 141px;
   }
 
+  .card__div--statement {
+    height: 225px;
+    width: 90%;
+  }
+
+  .card__div--statement p {
+    margin-top: 60px;
+  }
+
   .top__section {
-  height: 56vh;
+  height: 46vh;
   margin-bottom: 0px;
   }
 
