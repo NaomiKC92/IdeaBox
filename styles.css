@@ -104,6 +104,7 @@ h1 {
 .top__section {
   background-color: #A9AAD2;
   grid-area: f;
+  height: 52vh;
 }
 
 .top__form--top {
@@ -181,7 +182,7 @@ h1 {
   flex-wrap: wrap;
   flex-direction: row;
   grid-area: d;
-  height: 120vh;
+  height: 100vh;
 }
 
 .card__main--card {
@@ -192,7 +193,7 @@ h1 {
 
 .card {
   height: 370px;
-  width: 28%;
+  width: 27%;
   margin: 20px;
 }
 
@@ -219,7 +220,7 @@ footer p {
 }
 
 .card__footer--quality {
-  font-size: 1.4em;
+  font-size: 1em;
   padding-top: 5px;
 }
 
@@ -292,7 +293,7 @@ footer {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   height: 180vh;
+   height: 100vh;
  }
 
  .card {
@@ -307,7 +308,7 @@ footer {
 
  h1 {
    display: inline;
-   font-size: 1.3em;
+   font-size: .79em;
  }
 
  nav {
@@ -448,6 +449,11 @@ footer {
   .card__section--bottom {
   display: flex;
   flex-direction: column;
+  }
+
+  .card__footer--quality {
+    font-size: 1.1em;
+    padding-top: 8px;
   }
 
 }
