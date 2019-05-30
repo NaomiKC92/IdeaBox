@@ -105,7 +105,7 @@ h1 {
 .top__section {
   background-color: #A9AAD2;
   grid-area: f;
-  height: 52vh;
+  /*height: 52vh;*/
 }
 
 .top__form--top {
@@ -183,7 +183,7 @@ h1 {
   flex-wrap: wrap;
   flex-direction: row;
   grid-area: d;
-  height: 100vh;
+  /*height: 100vh;*/
 }
 
 .card__main--card {
@@ -296,12 +296,16 @@ footer {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   height: 100vh;
+   height: 124vh;
  }
 
  .card {
    height: 200px;
    width: 43%;
+ }
+
+ .card__main--card {
+  height: 285px;
  }
 
 }
@@ -435,7 +439,7 @@ footer {
   }
 
   .card__main--card {
-  height: 141px;
+    height: 141px;
   }
 
   .card__div--statement {
@@ -448,7 +452,7 @@ footer {
   }
 
   .top__section {
-  height: 46vh;
+  height: 59vh;
   margin-bottom: 0px;
   }
 
