@@ -190,10 +190,10 @@ function hideIdeaCue() {
   }
 }
 
-function searchThru() {
-  var searchInput = searchBar.value;
-  var searchList = ideaList;
-}
+// function searchThru() {
+//   var searchInput = searchBar.value;
+//   var searchList = ideaList;
+// }
 
 function findKey(e) {
   var cardId = e.target.closest('.card').getAttribute('data-id');
