@@ -35,12 +35,12 @@ function displayNavMenu(e) {
   if (e.target === menuBtn) {
     menuBtn.classList.add('hidden');
     menuX.classList.remove('hidden');
-    mobileNav.classList.remove('hidden');
+    mobileNav.classList.remove('nav__hide');
   }
   if (e.target === menuX) {
     menuX.classList.add('hidden');
     menuBtn.classList.remove('hidden');
-    mobileNav.classList.add('hidden');
+    mobileNav.classList.add('nav__hide');
   }
 
 }
