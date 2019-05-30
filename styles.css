@@ -20,7 +20,8 @@ nav {
 	height: 100%;
 }
 
-.nav__img--hamburger {
+.nav__img--hamburger,
+.nav__img--close {
   display: none;
 }
 
@@ -260,6 +261,8 @@ footer {
  display: none;
 }
 
+
+
 @media screen and (max-width: 936px) {
 
  h1 {
@@ -363,7 +366,8 @@ footer {
     grid-template-columns: 10% 90%;*/
   }
 
-  .nav__img--hamburger {
+  .nav__img--hamburger,
+  .nav__img--close {
     position: absolute;
     top: 13px;
     left: 10px;
@@ -383,15 +387,22 @@ footer {
    text-align: center;
    margin-top: 20px;
    background-image: "images/menu.svg";
+   /*z-index: 1;*/
   
   }
 
-  .nav__form--top {
-    display: none;
+  .nav__form--mobile {
+    align-content: center;
+    border-bottom: 1px solid #a9aad2;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #1f1f3d;
+    width: 100%;
+    top: 50px;
+    /*z-index: 2;*/
   }
-  .nav__form--bottom {
-    display: none;
-  }
+
   .top__input--title {
     width: 90%;
     height: 40px;
@@ -454,6 +465,10 @@ footer {
   .card__footer--quality {
     font-size: 1.1em;
     padding-top: 8px;
+  }
+
+  .hidden {
+    display: none;
   }
 
 }

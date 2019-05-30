@@ -9,6 +9,8 @@ var ideaList = [];
 var qualityList = ["Swill", "Plausible", "Genius"];
 var searchBar = document.querySelector('#search-input');
 var allCards = document.querySelectorAll('.card');
+var menuBtn = document.querySelector('.nav__img--hamburger');
+var menuX = document.querySelector('.nav__img--close');
 
 titleInput.addEventListener ('keyup', enableBtn);
 bodyInput.addEventListener ('keyup', enableBtn);
@@ -19,11 +21,28 @@ display.addEventListener('focusout', updateContent);
 searchBar.addEventListener('keyup', searchThru);
 display.addEventListener('keydown', enterContent);
 display.addEventListener('click', triggerStar);
+menuBtn.addEventListener('click', displayNavMenu);
+menuX.addEventListener('click', displayNavMenu)
 
 saveBtn.disabled = true;
 
 window.onload = function() {
   reloadCards();
+}
+
+function displayNavMenu(e) {
+  var mobileNav = document.querySelector('.nav__form--mobile');
+  if (e.target === menuBtn) {
+    menuBtn.classList.add('hidden');
+    menuX.classList.remove('hidden');
+    mobileNav.classList.remove('hidden');
+  }
+  if (e.target === menuX) {
+    menuX.classList.add('hidden');
+    menuBtn.classList.remove('hidden');
+    mobileNav.classList.add('hidden');
+  }
+
 }
 
 function listenForClick(e) {
@@ -99,7 +118,7 @@ var newWorkingIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
 }
 
 function deleteCard(e) {
-  if (e.target.className === "delete") {
+  if (e.target.className === 'delete') {
     var card = e.target.closest('.card');
     var cardId = e.target.closest('.card').getAttribute('data-id');
     card.remove();
@@ -113,7 +132,7 @@ function upvote(e) {
    var cardDataAttr = parseInt(cardToUpdate.dataset.id);
    var ideaListIndex = findIndex(cardDataAttr);
    var cardQuality = ideaList[ideaListIndex].quality;
-  if (e.target.id === "card__img--upvote") {
+  if (e.target.id === 'card__img--upvote') {
    cardQuality = Math.min(cardQuality + 1, qualityList.length - 1)
   } else if (e.target.id === "card__img--downvote") {
    cardQuality = Math.max(cardQuality - 1, 0)
@@ -171,10 +190,10 @@ function hideIdeaCue() {
   }
 }
 
-function searchThru() {
-  var searchInput = searchBar.value;
-  var searchList = ideaList;
-}
+// function searchThru() {
+//   var searchInput = searchBar.value;
+//   var searchList = ideaList;
+// }
 
 function findKey(e) {
   var cardId = e.target.closest('.card').getAttribute('data-id');

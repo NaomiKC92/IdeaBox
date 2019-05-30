@@ -10,20 +10,23 @@
   <body> 
     <nav>
       <img src="images/menu.svg" class="nav__img--hamburger">
+      <img src="images/menu-close.svg" class="nav__img--close hidden">
       <h1>IdeaBox Redux</h1>
-      <form class="nav__form--top">
-        <label class="nav__label nav__label--star">Filter Starred Ideas</label>
-        <button class="nav__btn" id="nav__btn--starred">Show Starred Ideas</button>
-      </form>
-      <form class="nav__form--bottom"> 
-        <label class="nav__label">Filter by Quality</label>
-        <button class="nav__btn--quality">Swill</button>
-        <button class="nav__btn--quality">Plausible</button>
-        <button class="nav__btn--quality">Genius</button>
-        <label class="nav__label" for="nav__input--quality">New Quality</label>
-        <input type="text" id="nav__input--quality" class="nav__input--quality">
-        <button class="nav__btn nav__quality" id="nav__btn--quality">Add New Quality</button>
-      </form>
+      <div class="nav__form--mobile hidden">
+        <form class="nav__form--top">
+          <label class="nav__label nav__label--star">Filter Starred Ideas</label>
+          <button class="nav__btn" id="nav__btn--starred">Show Starred Ideas</button>
+        </form>
+        <form class="nav__form--bottom"> 
+          <label class="nav__label">Filter by Quality</label>
+          <button class="nav__btn--quality">Swill</button>
+          <button class="nav__btn--quality">Plausible</button>
+          <button class="nav__btn--quality">Genius</button>
+          <label class="nav__label" for="nav__input--quality">New Quality</label>
+          <input type="text" id="nav__input--quality" class="nav__input--quality">
+          <button class="nav__btn nav__quality" id="nav__btn--quality">Add New Quality</button>
+        </form>
+      </div>
       <div></div>
     </nav>
     <section class="top__section">
