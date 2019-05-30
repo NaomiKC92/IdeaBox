@@ -40,7 +40,6 @@ h1 {
 .nav__input--quality {
 	height: 40px;
   width: 97%;
-	/*margin: 0px 0px 15px 10px;*/
 }
 
 .nav__btn {
@@ -100,12 +99,10 @@ h1 {
 	flex-direction: column;
   padding: 10px;
 }
-  /*top-section*/
 
 .top__section {
   background-color: #A9AAD2;
   grid-area: f;
-  /*height: 52vh;*/
 }
 
 .top__form--top {
@@ -175,15 +172,12 @@ h1 {
   border-right: 1px solid #1F1F3D;
 }
 
-/*IDEA CARDS*/
-
-.card__section--bottom{
+.card__section--bottom {
   background-color: #eaeaf4;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   grid-area: d;
-  /*height: 100vh;*/
 }
 
 .card__main--card {
@@ -261,97 +255,92 @@ footer {
  display: none;
 }
 
-
-
 @media screen and (max-width: 936px) {
 
- h1 {
-   font-size: .9em;
- }
+  h1 {
+    font-size: .9em;
+  }
 
- nav {
-   font-size: 1em;
- }
+  nav {
+    font-size: 1em;
+  }
 
- .nav__btn {
-   height: 38px;
-   width: 90%;
-   font-size: .8em;
- }
+  .nav__btn {
+    height: 38px;
+    width: 90%;
+    font-size: .8em;
+  }
 
- .nav__quality {
+  .nav__quality {
   width: 97%;
   margin-left: 0px;
-}
+  }
 
- .nav__label {
+  .nav__label {
   font-size: .85em;
- }
+  }
 
- .nav__input--quality {
-   height: 38px;
- }
+  .nav__input--quality {
+    height: 38px;
+  }
 
- .card__section--bottom {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-   height: 124vh;
- }
+  .card__section--bottom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 124vh;
+  }
 
- .card {
-   height: 200px;
-   width: 43%;
- }
+  .card {
+    height: 200px;
+    width: 43%;
+  }
 
- .card__main--card {
+  .card__main--card {
   height: 285px;
- }
-
+  }
 }
 
 
 @media screen and (max-width: 750px) {
 
- h1 {
-   display: inline;
-   font-size: .79em;
- }
+  h1 {
+    display: inline;
+    font-size: .79em;
+  }
 
- nav {
-   font-size: .9em;
- }
+  nav {
+    font-size: .9em;
+  }
 
- .nav__btn {
-   height: 35px;
-   width: 90%;
-   font-size: .7em;
- }
+  .nav__btn {
+    height: 35px;
+    width: 90%;
+    font-size: .7em;
+  }
 
- .nav__quality {
+  .nav__quality {
   width: 97%;
-  margin-left: 0px;
-}
+  margin-left: 0px; }
 
- .nav__input--quality {
-   height: 33px;
- }
+  .nav__input--quality {
+    height: 33px;
+  }
 
- .nav__label {
+  .nav__label {
   font-size: .7em;
- }
+  }
 
- .card__section--bottom {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
- }
+  .card__section--bottom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
- .card {
-   height: 200px;
-   width: 40%;
- }
-
+  .card {
+    height: 200px;
+    width: 40%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -361,38 +350,22 @@ footer {
     height: 55px;
   }
 
-  nav {
-    /*display: flex;
-    flex-direction: row;*/
-    /*display: grid;
-    grid-template-areas: 
-    "a b";
-    grid-template-columns: 10% 90%;*/
-  }
-
   .nav__img--hamburger,
   .nav__img--close {
     position: absolute;
     top: 13px;
     left: 10px;
-    /*display: grid;
-    grid-area: a;*/
-    /*margin: 10px;*/
     display: block;
     height: 30px;
     width: 30px;
   }
 
   nav h1 {
-   /*display: grid;
-   grid-area: b;*/
    border-bottom: none;
    font-size: 1.4em;
    text-align: center;
    margin-top: 20px;
    background-image: "images/menu.svg";
-   /*z-index: 1;*/
-  
   }
 
   .nav__form--mobile {
@@ -404,7 +377,6 @@ footer {
     background-color: #1f1f3d;
     width: 100%;
     top: 50px;
-    /*z-index: 2;*/
   }
 
   .top__input--title {
@@ -425,8 +397,7 @@ footer {
     width: 75%;
     height: 40px;
   }
-  /*margin-top: 0;*/
-
+  
   .top__img--search {
     width: 15%;
     height: 40px;
@@ -435,7 +406,6 @@ footer {
   .card {
    height: 225px;
    width: 90%;
-   /*margin-bottom: 20px;*/
   }
 
   .card__main--card {
@@ -457,13 +427,13 @@ footer {
   }
 
  .top__label {
-   font-size: inherit;
+  font-size: inherit;
   width: 85%;
   }
 
   .card__section--bottom {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
 
   .card__footer--quality {
@@ -478,7 +448,6 @@ footer {
   .hidden {
     display: none;
   }
-
 }
 
 

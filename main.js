@@ -6,7 +6,7 @@ var titleCard = document.querySelector('.card__h2--title');
 var bodyCard = document.querySelector('.card__p--body');
 var noIdea = document.querySelector('.card__div--statement');
 var ideaList = [];
-var qualityList = ["Swill", "Plausible", "Genius"];
+var qualityList = ['Swill', 'Plausible', 'Genius'];
 var searchBar = document.querySelector('#search-input');
 var allCards = document.querySelectorAll('.card');
 var menuBtn = document.querySelector('.nav__img--hamburger');
@@ -15,7 +15,6 @@ var menuX = document.querySelector('.nav__img--close');
 titleInput.addEventListener ('keyup', enableBtn);
 bodyInput.addEventListener ('keyup', enableBtn);
 saveBtn.addEventListener('click', handleSaveBtn);
-// display.addEventListener('click', deleteCard);
 display.addEventListener('click', listenForClick);
 display.addEventListener('focusout', updateContent);
 searchBar.addEventListener('keyup', searchThru);
@@ -79,7 +78,6 @@ function instantiateIdea(obj) {
   var ideaId = obj.id;
   var ideaStar = obj.star
   var ideaQuality = obj.quality;
-  //could be obj below
   idea = new Idea({id: ideaId, title: ideaTitle, body: ideaBody, star: ideaStar, quality: ideaQuality});
   ideaList.push(idea);
   idea.saveToStorage(ideaList);
@@ -110,11 +108,11 @@ function appendCard(object) {
 }
 
 function reloadCards() {
-var newWorkingIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
- newWorkingIdeas.map(function(object) {
+  var newWorkingIdeas = JSON.parse(localStorage.getItem('ideas')) || [];
+  newWorkingIdeas.map(function(object) {
    instantiateIdea(object);
  });
- hideIdeaCue();
+  hideIdeaCue();
 }
 
 function deleteCard(e) {
@@ -128,28 +126,18 @@ function deleteCard(e) {
 }
 
 function upvote(e) {
-   var cardToUpdate = e.target.closest('.card');
-   var cardDataAttr = parseInt(cardToUpdate.dataset.id);
-   var ideaListIndex = findIndex(cardDataAttr);
-   var cardQuality = ideaList[ideaListIndex].quality;
+  var cardToUpdate = e.target.closest('.card');
+  var cardDataAttr = parseInt(cardToUpdate.dataset.id);
+  var ideaListIndex = findIdeaIndex(cardDataAttr);
+  var cardQuality = ideaList[ideaListIndex].quality;
   if (e.target.id === 'card__img--upvote') {
-   cardQuality = Math.min(cardQuality + 1, qualityList.length - 1)
+    cardQuality = Math.min(cardQuality + 1, qualityList.length - 1)
   } else if (e.target.id === "card__img--downvote") {
    cardQuality = Math.max(cardQuality - 1, 0)
   }
    ideaList[ideaListIndex].updateQuality(cardQuality);
    updateQualityDisplay(cardToUpdate, cardQuality);
 }
-
- // function downvote() {
- //   var cardToUpdate = e.target.closest('.card');
- //   var cardDataAttr = parseInt(cardToUpdate.dataset.id);
- //   var ideaListIndex = findIndex(cardDataAttr);
- //   var cardQuality = ideaList[ideaListIndex].quality;
- //   ideaList[ideaListIndex].updateQuality(cardQuality);
- //   updateQualityDisplay(cardToUpdate, cardQuality);
- // }
-// }
 
 function enterContent(e) {
   if (e.keyCode === 13) {
@@ -166,14 +154,14 @@ function updateContent(e) {
   var updatedBody = bodyOutput.innerText;
   var blurredTitle = titleOutput.blur();
   var blurredBody = bodyOutput.blur();
-  var index = findIndex(cardDataAttr);
+  var index = findIdeaIndex(cardDataAttr);
   ideaList[index].updateIdea(updatedTitle, updatedBody, ideaList[index].star);
 }
 
-function findIndex(card) {
+function findIdeaIndex(card) {
   var cardId = card;
   return ideaList.findIndex(function(item){
-    return item.id === cardId;
+  return item.id === cardId;
   })
 }
 
@@ -190,15 +178,10 @@ function hideIdeaCue() {
   }
 }
 
-// function searchThru() {
-//   var searchInput = searchBar.value;
-//   var searchList = ideaList;
-// }
-
 function findKey(e) {
   var cardId = e.target.closest('.card').getAttribute('data-id');
   return ideaList.findIndex(function(item) {
-    return item.id === parseInt(cardId);
+  return item.id === parseInt(cardId);
   });
 }
 
@@ -224,13 +207,12 @@ function triggerStar(e) {
 
 function searchThru(e) {
   var searchInput = e.target.value.toLowerCase();
-  var results = ideaList.filter(function(idea){
-    return idea.title.toLowerCase().includes(searchInput) || idea.body.toLowerCase().includes(searchInput);  
+  var results = ideaList.filter(function(idea) {
+  return idea.title.toLowerCase().includes(searchInput) || idea.body.toLowerCase().includes(searchInput);  
   });
-  console.log(results)
   display.innerHTML = '';
   results.map(function(idea){
-    appendCard(idea)
+  appendCard(idea)
   });
 }
 
