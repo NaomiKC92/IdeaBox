@@ -3,21 +3,21 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
   display: grid;
   grid-template-areas: 
   'n f'
   'n d';
   grid-template-columns: 20% 80%;
+  font-family: 'Open Sans', sans-serif;
 }
 
 nav {
   grid-area:n;
 	display: flex;
 	flex-direction: column;
-	font-family: 'open sans';
-	background-color: #1f1f3d;
-	height: 100%;
+  background-color: #1f1f3d;
+  font-family: 'open sans';
+  height: 100%;
 }
 
 .nav__img--hamburger,
@@ -26,10 +26,10 @@ nav {
 }
 
 h1 {
-	border-bottom: 1px solid #a9aad2;
-	color: #fff;
-	font-family: 'open sans', bold;
-	font-size: 1.2em;
+  border-bottom: 1px solid #a9aad2;
+  color: #fff;
+  font-family: 'open sans', bold;
+  font-size: 1.2em;
   padding: 0px 18px 18px 18px;
 }
 
@@ -43,44 +43,44 @@ h1 {
 }
 
 .nav__btn {
-	background-color: #5356a4;
-	border-color: #353567;
-	color: #e9e9f3;
-	margin: 15px 10px;
-	width: 90%;
-	height: 45px;
+  background-color: #5356a4;
+  border-color: #353567;
+  color: #e9e9f3;
+  height: 45px;
+  margin: 15px 10px;
+  width: 90%;
   font-size: .9em;
 }
 
 .nav__btn--quality:hover {
-	background-color: #d14119;
-	display: block;
-	border-left: 3px solid #f58e72;
+  background-color: #d14119;
+  border-left: 3px solid #f58e72;
+  display: block;
 }
 
 .nav__btn--quality {
-	color: #fff;
-	list-style-type: none;
-	margin: 10px 0px;
-	background-color: #1F1F3D;
-	border: none;
+  background-color: #1F1F3D;
+  border: none;
+  color: #fff;
+  font-weight: 300;
+  list-style-type: none;
+  margin: 10px 0px;
+  text-align: left;
   padding-left: 10px;
-	text-align: left;
-	font-weight: 300;
   width: 97%;
 }
 
 .nav__quality {
-  width: 97%;
   margin-left: 0px;
+  width: 97%;
 }
 
 .nav__label {
-	color: #bfbfdd;
-	font-family: 'open sans', light;
-	text-align: left;
-	font-size: 1em;
-	margin: 15px 10px 10px;
+  color: #bfbfdd;
+  font-family: 'open sans', light;
+  font-size: 1em;
+  margin: 15px 10px 10px;
+  text-align: left;
 }
 
 
@@ -89,7 +89,6 @@ h1 {
 	border-bottom: 1px solid #a9aad2;
 	display: flex;
 	flex-direction: column;
-
 }
 
 .nav__form--bottom {
@@ -106,29 +105,29 @@ h1 {
 }
 
 .top__form--top {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
   padding-top: 5px;
 }
 
 .top__label--input {
-  width: 45%;
   text-align: left;
+  width: 45%;
 }
 
 .top__input {
-  width: 45%;
   border: 1.2px solid #5356A4;
   margin: 10px;
+  width: 45%;
 }
 
 .top__label {
   color: #1F1F3D;
+  font-size: larger;
   font-weight: bold;
   margin-top: 15px;
-  font-size: larger;
 }
 
 .top__textarea--body {
@@ -150,9 +149,9 @@ h1 {
 }
 
 .top__search {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: 10px 0px 20px;
 }
 
@@ -165,18 +164,18 @@ h1 {
 
 .top__img--search {
   background-color: #1F1F3D;
+  border-right: 1px solid #1F1F3D;
   border: 1.2px solid #5356A4;
   height: 50px;
   padding: 5px;
   width: 5%;
-  border-right: 1px solid #1F1F3D;
 }
 
 .card__section--bottom {
   background-color: #eaeaf4;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
+  flex-wrap: wrap;
   grid-area: d;
 }
 
@@ -188,8 +187,8 @@ h1 {
 
 .card {
   height: 370px;
-  width: 27%;
   margin: 20px;
+  width: 27%;
 }
 
 header {
@@ -236,19 +235,19 @@ footer p {
 
 footer {
   background-color: #5356a4;
-  font-weight: 700;
   font-size: 12px;
+  font-weight: 700;
 }
 
 .card__div--statement {
-  height: 370px;
-  width: 28%;
-  margin: 20px;
   border: 1px dotted black;
-  font-size: 1em;
-  text-align: center;
   display: flex;
+  font-size: 1em;
+  height: 370px;
   justify-content: center;
+  margin: 20px;
+  text-align: center;
+  width: 28%;
 }
 
 .hidden {
@@ -266,18 +265,18 @@ footer {
   }
 
   .nav__btn {
+    font-size: .8em;
     height: 38px;
     width: 90%;
-    font-size: .8em;
   }
 
   .nav__quality {
-  width: 97%;
-  margin-left: 0px;
+    margin-left: 0px;
+    width: 97%;
   }
 
   .nav__label {
-  font-size: .85em;
+    font-size: .85em;
   }
 
   .nav__input--quality {
@@ -297,7 +296,7 @@ footer {
   }
 
   .card__main--card {
-  height: 285px;
+    height: 285px;
   }
 }
 
@@ -314,21 +313,22 @@ footer {
   }
 
   .nav__btn {
+    font-size: .7em;
     height: 35px;
     width: 90%;
-    font-size: .7em;
   }
 
   .nav__quality {
-  width: 97%;
-  margin-left: 0px; }
+    margin-left: 0px; 
+    width: 97%;
+  }
 
   .nav__input--quality {
     height: 33px;
   }
 
   .nav__label {
-  font-size: .7em;
+    font-size: .7em;
   }
 
   .card__section--bottom {
@@ -352,36 +352,36 @@ footer {
 
   .nav__img--hamburger,
   .nav__img--close {
-    position: absolute;
-    top: 13px;
-    left: 10px;
     display: block;
     height: 30px;
+    left: 10px;
+    position: absolute;
+    top: 13px;
     width: 30px;
   }
 
   nav h1 {
+   background-image: "images/menu.svg";
    border-bottom: none;
    font-size: 1.4em;
-   text-align: center;
    margin-top: 20px;
-   background-image: "images/menu.svg";
+   text-align: center;
   }
 
   .nav__form--mobile {
     align-content: center;
+    background-color: #1f1f3d;
     border-bottom: 1px solid #a9aad2;
     display: flex;
     flex-direction: column;
     position: absolute;
-    background-color: #1f1f3d;
-    width: 100%;
     top: 50px;
+    width: 100%;
   }
 
   .top__input--title {
-    width: 90%;
     height: 40px;
+    width: 90%;
   }
 
   .top__textarea--body {
@@ -389,23 +389,23 @@ footer {
   }
   
   .top__btn--save {
-    width: 90%;
     height: 40px;
+    width: 90%;
   }  
 
   .top__input--search {
-    width: 75%;
     height: 40px;
+    width: 75%;
   }
   
   .top__img--search {
-    width: 15%;
     height: 40px;
+    width: 15%;
   }
 
   .card {
-   height: 225px;
-   width: 90%;
+    height: 225px;
+    width: 90%;
   }
 
   .card__main--card {
@@ -422,13 +422,13 @@ footer {
   }
 
   .top__section {
-  height: 59vh;
-  margin-bottom: 0px;
+    height: 59vh;
+    margin-bottom: 0px;
   }
 
- .top__label {
-  font-size: inherit;
-  width: 85%;
+  .top__label {
+    font-size: inherit;
+    width: 85%;
   }
 
   .card__section--bottom {
