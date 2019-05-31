@@ -31,12 +31,3 @@ class Idea {
     this.saveToStorage(ideaList);
   }
 }
-
-
-//rename findindex function to findIdeaIndex
-//change id of up/downvote to class
-//change class of delete
-//consistency with e and event 
-//is cardqualitydisplay doing anything?
-
-//triggerstar updateIdea to see if we can get this.quality=quality
